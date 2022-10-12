@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "602426551207",
+    "project_id": "intellibra-ecb00",
+    "storage_bucket": "intellibra-ecb00.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:602426551207:android:e09776a6f87224b9fc6482",
+        "android_client_info": {
+          "package_name": "anora.intellibra.app.intellibra"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "602426551207-isedolv1oorg3u1lufkt97o4grvpb0oo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbvj4BpjWr_i1LCG8GbEJksnje1PQf7yA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "602426551207-isedolv1oorg3u1lufkt97o4grvpb0oo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "602426551207-gv7o37n3lirliqrnnmuevhlibq50m63o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.intellibra"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
