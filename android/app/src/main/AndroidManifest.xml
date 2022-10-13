@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="anora.intellibra.app">
+    package="anora.intellibra.app.intellibra">
    <application
         android:label="Intellibra"
         android:name="${applicationName}"
