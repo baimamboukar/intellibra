@@ -10,6 +10,7 @@ import 'package:intellibra/src/screens/screens.dart';
     AutoRoute(page: Welcome, path: '/welcome', initial: false),
     AutoRoute(
       page: Home,
+      initial: true,
       path: '/home',
       guards: [
         AuthGuard,
