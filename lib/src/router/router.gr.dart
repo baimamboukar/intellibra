@@ -79,6 +79,12 @@ class AppRouter extends _i2.RootStackRouter {
   @override
   List<_i2.RouteConfig> get routes => [
         _i2.RouteConfig(
+          '/#redirect',
+          path: '/',
+          redirectTo: '/home',
+          fullMatch: true,
+        ),
+        _i2.RouteConfig(
           Login.name,
           path: '/login',
         ),
