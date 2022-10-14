@@ -39,33 +39,33 @@ class Home extends ConsumerWidget {
               items: const [
                 BottomNavigationBarItem(
                   icon: Icon(
-                    IconlyBroken.home,
+                    IconlyBroken.scan,
                     size: 18,
                   ),
-                  label: "Intellibra",
+                  label: "intellibra",
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(
-                    IconlyBroken.chart,
+                    IconlyBroken.heart,
                     size: 18,
                   ),
-                  label: "Selfcheck",
+                  label: "selfcheck",
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(
-                    IconlyBroken.swap,
+                    IconlyBroken.shield_done,
                     size: 18,
                   ),
                   backgroundColor: Palette.dark,
-                  label: "Awareness",
+                  label: "awareness",
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(
-                    IconlyBroken.setting,
+                    IconlyBroken.folder,
                     size: 18,
                   ),
                   backgroundColor: Palette.dark,
-                  label: "Records",
+                  label: "records",
                 ),
               ],
             ),
