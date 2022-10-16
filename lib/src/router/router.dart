@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:intellibra/src/router/guards/auth_guard.dart';
+import 'package:intellibra/src/screens/awareness_detail.dart';
 import 'package:intellibra/src/screens/screens.dart';
 
 @AdaptiveAutoRouter(
@@ -22,6 +23,7 @@ import 'package:intellibra/src/screens/screens.dart';
         AutoRoute(page: Records, path: 'records'),
       ],
     ),
+    AutoRoute(page: AwarenessDetail, path: 'awareness_detail'),
   ],
 )
 class $AppRouter {}

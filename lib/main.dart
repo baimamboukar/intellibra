@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hive_listener/hive_listener.dart';
@@ -21,7 +22,7 @@ Future<void> main() async {
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await Hive.initFlutter();
   await Hive.openBox('userBox');
-
+await ScreenUtil.ensureScreenSize();
   Hive.box('userBox').isEmpty
       ? {
           Hive.box('userBox').put('language', 'English'),
@@ -101,6 +102,8 @@ class _IntelligentBraState extends ConsumerState<IntelligentBra> {
           ).copyWith(
             secondary: Palette.secondary,
           ),
+          
+          appBarTheme: AppBarTheme(backgroundColor: Palette.lightGrey),
           scaffoldBackgroundColor: Palette.lightGrey,
           textTheme: GoogleFonts.poppinsTextTheme(
             Theme.of(context).textTheme,
