@@ -39,6 +39,8 @@ dependencies:
   firebase_auth: ^3.10.0
   firebase_storage: ^10.3.9
   cloud_firestore: ^3.4.9
+  flutter_screenutil: ^5.5.4
+  timeago: ^3.3.0
 
 dev_dependencies:
   flutter_test:
@@ -66,5 +68,5 @@ flutter:
 
   assets:
     - assets/
-    - assets/animations/
+    # - assets/animations/
     - assets/images/
