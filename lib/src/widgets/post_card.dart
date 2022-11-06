@@ -57,6 +57,7 @@ class PostCard extends ConsumerWidget {
       child: Container(
         height: 191.h,
         width: 343.w,
+        margin: EdgeInsets.symmetric(vertical: 10.h),
         padding: EdgeInsets.symmetric(vertical: 17.h, horizontal: 23.37.w),
         decoration: BoxDecoration(
           color: Palette.light,
