@@ -21,7 +21,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_native_splash: ^2.2.18
-  get_it: ^7.2.0
+  get_it: ^7.4.1
   google_fonts: ^4.0.3
   hydrated_bloc: ^9.1.0
   iconly: ^1.0.1
