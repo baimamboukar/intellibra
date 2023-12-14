@@ -1,33 +1,33 @@
 class BlueToothTurnException implements Exception {
-  final String message;
 
   BlueToothTurnException([this.message = "the bluetooth couldn't be turned on"]);
+  final String message;
 }
 
 class BlueToothPermissionException implements Exception {
-  final String message;
 
   BlueToothPermissionException(
-      [this.message = "the bluetooth permission couldn't be granted"]);
+      [this.message = "the bluetooth permission couldn't be granted",]);
+  final String message;
 }
 
 class BlueToothScanException implements Exception {
-  final String message;
 
   BlueToothScanException(
-      [this.message = "the bluetooth couldn't scanned for devices"]);
+      [this.message = "the bluetooth couldn't scanned for devices",]);
+  final String message;
 }
 
 class BlueToothTurnOffException implements Exception {
-  final String message;
 
   BlueToothTurnOffException(
-      [this.message = "the bluetooth couldn't be turned off"]);
+      [this.message = "the bluetooth couldn't be turned off",]);
+  final String message;
 }
 
 class BlueToothDisconnectException implements Exception {
-  final String message;
 
   BlueToothDisconnectException(
-      [this.message = "the bluetooth couldn't be disconnected"]);
+      [this.message = "the bluetooth couldn't be disconnected",]);
+  final String message;
 }

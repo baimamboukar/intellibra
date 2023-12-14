@@ -63,7 +63,7 @@ class _CreateAccountState extends State<CreateAccount> {
               )
             else
               const SizedBox.shrink(),
-            24.vGap
+            24.vGap,
           ],
         ),
       ),
@@ -100,7 +100,7 @@ class _CreateAccountState extends State<CreateAccount> {
                     )
                     .toList(),
               ),
-            )
+            ),
           ],
         ),
         14.vGap,
@@ -190,7 +190,7 @@ class _CreateAccountState extends State<CreateAccount> {
                     )
                     .toList(),
               ),
-            )
+            ),
           ],
         ),
         14.vGap,
@@ -261,7 +261,7 @@ class _CreateAccountState extends State<CreateAccount> {
                     )
                     .toList(),
               ),
-            )
+            ),
           ],
         ),
         14.vGap,

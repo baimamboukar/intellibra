@@ -25,9 +25,9 @@ class IntelliDialog extends StatelessWidget {
           onPressed: () {},
         ),
       ],
-      content: Column(
+      content: const Column(
         mainAxisSize: MainAxisSize.min,
-        children: const [
+        children: [
           ListTile(
             title: Text('Francais'),
           ),

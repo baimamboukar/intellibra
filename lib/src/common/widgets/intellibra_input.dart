@@ -2,14 +2,10 @@ import 'package:flutter/material.dart';
 
 class IntelliInput extends StatefulWidget {
   const IntelliInput({
-    super.key,
-    required this.label,
-    required this.hint,
+    required this.label, required this.hint, required this.controller, required this.obscureText, super.key,
     this.validator,
     this.isActive,
-    required this.controller,
     this.keyboardType,
-    required this.obscureText,
     this.prefix,
     this.suffix,
   });

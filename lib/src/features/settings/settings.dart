@@ -108,7 +108,7 @@ class Settings extends StatelessWidget {
             ),
             34.vGap,
             const TradeMark(),
-            8.vGap
+            8.vGap,
           ],
         ),
       ),

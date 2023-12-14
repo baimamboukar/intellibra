@@ -1,5 +1,5 @@
 name: intellibra
-description: A Very Good Project created by Very Good CLI.
+description: Breast cancer Detection App
 version: 1.0.0+1
 publish_to: none
 
@@ -14,6 +14,7 @@ dependencies:
   dartz: ^0.10.1
   firebase_auth: ^4.2.9
   firebase_core: ^2.7.0
+  flex_seed_scheme: ^1.4.0
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.2
@@ -49,8 +50,13 @@ flutter:
   assets:
     - assets/
     - assets/icons/
+    - assets/fonts/
+  fonts:
+    - family: Agrandir
+      fonts:
+        - asset: assets/fonts/agrandir.ttf
 icons_launcher:
-  image_path: "assets/icons/app-icon.png"
+  image_path: "assets/icons/logo.png"
   platforms:
     android:
       enable: true

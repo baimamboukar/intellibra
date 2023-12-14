@@ -1,16 +1,19 @@
+// ignore_for_file: deprecated_member_use
+
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
+import 'package:intellibra/src/extensions/object.dart';
 import 'package:intellibra/src/features/scan/data/bluetooth_exceptions.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class BluetoothScanService {
   Future<void> enableBlueTooth() async {
     // check availability
-    if (await FlutterBluePlus.isAvailable == false) {
+    if (await FlutterBluePlus.isSupported == false) {
       if (kDebugMode) {
-        print("Bluetooth not supported by this device");
+        'Bluetooth not supported by this device'.log;
       }
       return;
     }
@@ -25,8 +28,6 @@ class BluetoothScanService {
         .where((s) => s == BluetoothAdapterState.on)
         .first;
   }
-
-  
 
   Stream<BluetoothAdapterState> get state => FlutterBluePlus.adapterState;
   BluetoothAdapterState get initial => BluetoothAdapterState.unknown;
@@ -46,7 +47,7 @@ class BluetoothScanService {
           Permission.storage,
           Permission.bluetooth,
           Permission.bluetoothConnect,
-          Permission.bluetoothScan
+          Permission.bluetoothScan,
         ].request().then((status) {
           return true;
         });
@@ -61,9 +62,7 @@ class BluetoothScanService {
 
   Future<void> scanDevice() async {
     await FlutterBluePlus.startScan(
-        timeout: const Duration(seconds: 30),
-        includeConnectedDevices: true,
-        androidUsesFineLocation: false);
+        timeout: const Duration(seconds: 30),);
 
     /*    // Setup Listener for scan results
     final subscription = FlutterBluePlus.scanResults.listen((results) {
@@ -83,7 +82,7 @@ class BluetoothScanService {
     await FlutterBluePlus.stopScan(); */
   }
 
-  Future<List<BluetoothDevice>> get connectedDevices =>
+  List<BluetoothDevice> get connectedDevices =>
       FlutterBluePlus.connectedDevices;
   Future<void> turnBlueToothOff() async {
     try {

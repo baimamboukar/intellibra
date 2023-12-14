@@ -1,9 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hicons/flutter_hicons.dart';
-import 'package:intellibra/src/app/assets.dart';
-import 'package:intellibra/src/configs/configs.dart';
 import 'package:intellibra/src/extensions/build_context.dart';
 import 'package:intellibra/src/features/onboarding/thememode/cubit/theme_cubit.dart';
 import 'package:intellibra/src/features/scan/presentation/widgets/intellibra_controller.dart';
@@ -73,14 +70,14 @@ class _IntellibraStateBox extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => FlutterBlueApp()));
+            .push(MaterialPageRoute(builder: (context) => const FlutterBlueApp()));
       },
       child: Container(
         height: 70,
         width: 70,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(14),
-            color: context.scheme.primary),
+            color: context.scheme.primary,),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [Icon(icon), Text(message)],

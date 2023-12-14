@@ -63,17 +63,17 @@ class _IntellibraControllerState extends State<IntellibraController> {
                           blurRadius: 15,
                           offset: Offset(-4, 4),
                           color: Palette.primary,
-                        )
+                        ),
                       ]
                     : const [
                         BoxShadow(
                             blurRadius: 15,
                             offset: Offset(4, -4),
-                            color: Colors.green),
+                            color: Colors.green,),
                         BoxShadow(
                             blurRadius: 15,
                             offset: Offset(-4, 4),
-                            color: Colors.green)
+                            color: Colors.green,),
                       ],
               ),
               child: Padding(
@@ -94,13 +94,11 @@ class _IntellibraControllerState extends State<IntellibraController> {
 }
 
 class _DeviceSearch extends StatelessWidget {
-  const _DeviceSearch({
-    super.key,
-  });
+  const _DeviceSearch();
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: context.width,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -131,7 +129,7 @@ class _DeviceSearch extends StatelessWidget {
                         state.devices.map((device) => DeviceTile(
                           name: device.localName,
                           subtitle: device.remoteId.toString(),
-                        )).toList(),
+                        ),).toList(),
                   );
                 }
               
@@ -145,7 +143,7 @@ class _DeviceSearch extends StatelessWidget {
                 'Intellibra-INC9X2',
                 style: context.bodyLg.copyWith(fontWeight: FontWeight.bold),
               ),
-              subtitle: Text('reachable'),
+              subtitle: const Text('reachable'),
               trailing: CircularProgressIndicator(
                 color: context.scheme.primary,
                 strokeWidth: 1,
@@ -164,7 +162,7 @@ class _DeviceSearch extends StatelessWidget {
                   color: context.scheme.onPrimary,
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -174,10 +172,8 @@ class _DeviceSearch extends StatelessWidget {
 
 class DeviceTile extends StatelessWidget {
   const DeviceTile({
-    Key? key,
-    required this.name,
-    required this.subtitle,
-  }) : super(key: key);
+    required this.name, required this.subtitle, super.key,
+  });
 
   final String name;
   final String subtitle;

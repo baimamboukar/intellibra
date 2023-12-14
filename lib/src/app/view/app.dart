@@ -23,18 +23,13 @@ class _IntellibraState extends State<Intellibra> {
 
   @override
   Widget build(BuildContext context) {
-    const theme = IntellibraTheme();
     return IntelliBlocs(
       child: BlocBuilder<ThemeCubit, bool>(
         builder: (BuildContext context, bool state) {
           return MaterialApp.router(
             themeMode: !state == false ? ThemeMode.light : ThemeMode.dark,
-            theme: theme.toThemeData(
-              Brightness.light,
-            ),
-            darkTheme: theme.toThemeData(
-              Brightness.dark,
-            ),
+            theme: IntellibraTheme.light,
+            darkTheme: IntellibraTheme.dark,
             routeInformationParser: router.defaultRouteParser(),
             routerDelegate: router.delegate(),
             supportedLocales: AppLocalizations.supportedLocales,

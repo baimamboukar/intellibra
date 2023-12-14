@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intellibra/bootstrap.dart';
 import 'package:intellibra/src/app/app.dart';
@@ -12,7 +11,7 @@ void main() {
         BlocProvider.value(
           value: ThemeCubit(),
         ),
-        BlocProvider.value(value: ScanCubit())
+        BlocProvider.value(value: ScanCubit()),
       ],
       child: const Intellibra(),
     ),

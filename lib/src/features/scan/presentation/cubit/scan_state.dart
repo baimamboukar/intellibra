@@ -10,8 +10,8 @@ class RequestPermissionInit extends ScanState {}
 class RequestPermissionSuccess extends ScanState {}
 
 class RequestPermissionFailure extends ScanState {
-  final String message;
   RequestPermissionFailure({required this.message});
+  final String message;
 }
 
 class TurnOnBluetoothInit extends ScanState {}
@@ -19,19 +19,19 @@ class TurnOnBluetoothInit extends ScanState {}
 class TurnOnBluetoothSuccess extends ScanState {}
 
 class TurnOnBluetoothFailure extends ScanState {
-  final String message;
   TurnOnBluetoothFailure({required this.message});
+  final String message;
 }
 
 class ScanDeviceInit extends ScanState {}
 
 class ScanDeviceSuccess extends ScanState {
-  final List<BluetoothDevice> devices;
   ScanDeviceSuccess({required this.devices});
+  final List<BluetoothDevice> devices;
 }
 
 class ScanDeviceFailure extends ScanState {
-  final String message;
   ScanDeviceFailure({required this.message});
+  final String message;
 }
 

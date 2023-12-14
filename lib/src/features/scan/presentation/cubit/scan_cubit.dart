@@ -2,17 +2,16 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
+import 'package:intellibra/src/features/scan/domain/scan_repository.dart';
 import 'package:meta/meta.dart';
-
-import '../../domain/scan_repository.dart';
 
 part 'scan_state.dart';
 
 class ScanCubit extends Cubit<ScanState> {
-  final repo = ScanRepository();
-  StreamSubscription? _scanDevicesSubscription;
 
   ScanCubit() : super(ScanInitial());
+  final repo = ScanRepository();
+  StreamSubscription? _scanDevicesSubscription;
 
   Future<void> requestPermission() async {
     emit(RequestPermissionInit());
@@ -39,10 +38,10 @@ class ScanCubit extends Cubit<ScanState> {
     emit(ScanDeviceInit());
     try {
       _scanDevicesSubscription =
-          Stream.periodic(Duration(seconds: 2)).asyncMap((_) async {
+          Stream.periodic(const Duration(seconds: 2)).asyncMap((_) async {
         try {
           await repo.startScan();
-          final devices = await repo.service.connectedDevices;
+          final devices = repo.service.connectedDevices;
           emit(ScanDeviceSuccess(devices: devices));
           return devices;
         } catch (e) {
