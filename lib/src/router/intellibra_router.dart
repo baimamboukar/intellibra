@@ -1,55 +1,50 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:intellibra/src/features/auth/presentation/signup/screens/signup.dart';
-import 'package:intellibra/src/features/awareness/screens/awareness.dart';
-import 'package:intellibra/src/features/onboarding/onboarding.dart';
-import 'package:intellibra/src/features/records/medical_records.dart';
-import 'package:intellibra/src/features/scan/home.dart';
-import 'package:intellibra/src/features/scan/self_exam.dart';
-import 'package:intellibra/src/features/settings/settings.dart';
 
-@AdaptiveAutoRouter(
-  replaceInRouteName: 'Page,Route',
-  routes: <AutoRoute>[
-    AutoRoute(
-      page: Welcome,
-      initial: true,
-      path: '/welcome',
-    ),
-    AutoRoute(
-      page: CreateAccount,
-      initial: true,
-      path: '/create-account',
-    ),
-    AutoRoute(
-      page: ChooseLanguage,
-      path: '/choose-language',
-    ),
-    AutoRoute(
-      page: ChooseTheme,
-      path: '/choose-theme',
-    ),
-    AutoRoute(
-      page: Home,
-      path: '/home',
-      children: [
+import 'package:intellibra/src/router/intellibra_router.gr.dart';
+
+@AutoRouterConfig()
+class IntellibraRouter extends $IntellibraRouter {
+  @override
+  List<AutoRoute> get routes => <AutoRoute>[
         AutoRoute(
-          page: SelfCheck,
-          path: 'self-check',
+          page: Welcome.page,
+          initial: true,
+          path: '/welcome',
         ),
         AutoRoute(
-          page: Awareness,
-          path: 'awareness',
+          page: CreateAccount.page,
+          initial: true,
+          path: '/create-account',
         ),
         AutoRoute(
-          page: IntelliRecords,
-          path: 'medical-records',
+          page: ChooseLanguage.page,
+          path: '/choose-language',
         ),
         AutoRoute(
-          page: Settings,
-          path: 'settings',
+          page: ChooseTheme.page,
+          path: '/choose-theme',
         ),
-      ],
-    ),
-  ],
-)
-class $IntellibraRouter {}
+        AutoRoute(
+          page: Home.page,
+          path: '/home',
+          children: [
+            AutoRoute(
+              page: SelfCheck.page,
+              path: 'self-check',
+            ),
+            AutoRoute(
+              page: Awareness.page,
+              path: 'awareness',
+            ),
+            AutoRoute(
+              page: IntelliRecords.page,
+              path: 'medical-records',
+            ),
+            AutoRoute(
+              page: Settings.page,
+              path: 'settings',
+            ),
+          ],
+        ),
+      ];
+}

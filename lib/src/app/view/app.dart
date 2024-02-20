@@ -4,6 +4,7 @@ import 'package:intellibra/l10n/l10n.dart';
 import 'package:intellibra/src/app/intelli_blocs.dart';
 import 'package:intellibra/src/configs/intellibra_theme.dart';
 import 'package:intellibra/src/features/onboarding/thememode/cubit/theme_cubit.dart';
+import 'package:intellibra/src/router/intellibra_router.dart';
 import 'package:intellibra/src/router/intellibra_router.gr.dart';
 
 class Intellibra extends StatefulWidget {
@@ -30,8 +31,7 @@ class _IntellibraState extends State<Intellibra> {
             themeMode: state == false ? ThemeMode.light : ThemeMode.dark,
             theme: IntellibraTheme.light,
             darkTheme: IntellibraTheme.dark,
-            routeInformationParser: router.defaultRouteParser(),
-            routerDelegate: router.delegate(),
+            routerConfig: router.config(),
             supportedLocales: AppLocalizations.supportedLocales,
           );
         },

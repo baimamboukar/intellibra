@@ -7,7 +7,7 @@ environment:
   sdk: ">=2.19.0 <3.0.0"
 
 dependencies:
-  auto_route: ^5.0.4
+  auto_route: ^7.8.4
   bloc: ^8.1.1
   cloud_firestore: ^4.4.3
   collection: ^1.17.0
@@ -25,26 +25,26 @@ dependencies:
     sdk: flutter
   flutter_native_splash: ^2.2.18
   get_it: ^7.2.0
-  google_fonts: ^5.1.0
+  google_fonts: ^6.1.0
   heroicons: ^0.9.0
   hydrated_bloc: ^9.1.0
   iconly: ^1.0.1
   intl: ^0.18.0
   palette_generator: ^0.3.3+2
   path_provider: ^2.0.13
-  permission_handler: ^10.4.3
-  pinput: ^2.2.31
+  permission_handler: ^11.3.0
+  pinput: ^4.0.0
   shadow_overlay: ^1.0.5
   url_launcher: ^6.1.10
 
 dev_dependencies:
-  auto_route_generator: ^5.0.3
+  auto_route_generator: ^7.3.2
   bloc_test: ^9.1.1
   build_runner: ^2.3.3
   fast_i18n: ^5.12.6
   flutter_test:
     sdk: flutter
-  mocktail: ^0.3.0
+  mocktail: ^1.0.3
   very_good_analysis: ^5.0.0+1
 
 flutter:
