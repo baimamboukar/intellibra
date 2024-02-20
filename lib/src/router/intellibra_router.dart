@@ -13,7 +13,6 @@ class IntellibraRouter extends $IntellibraRouter {
         ),
         AutoRoute(
           page: CreateAccount.page,
-          initial: true,
           path: '/create-account',
         ),
         AutoRoute(

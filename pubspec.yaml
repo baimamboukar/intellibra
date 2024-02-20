@@ -9,11 +9,11 @@ environment:
 dependencies:
   auto_route: ^7.8.4
   bloc: ^8.1.1
-  cloud_firestore: ^4.4.3
   collection: ^1.17.0
   dartz: ^0.10.1
-  firebase_auth: ^4.2.9
-  firebase_core: ^2.7.0
+  firebase_core: ^2.25.4
+  firebase_auth: ^4.17.5
+  cloud_firestore: ^4.15.5
   flex_seed_scheme: ^1.4.0
   flutter:
     sdk: flutter

@@ -11,7 +11,7 @@ import 'package:intellibra/src/features/settings/widgets/action_tile.dart';
 import 'package:intellibra/src/features/settings/widgets/language_dialog.dart';
 
 //TODO: #36 redesign profile page to give a new feel
-@RoutePage()    
+@RoutePage()
 class Settings extends StatelessWidget {
   const Settings({super.key});
   @override
