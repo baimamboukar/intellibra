@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:intellibra/src/router/intellibra_router.gr.dart' as routes;
 
+//TODO: #34 redesign navigation bar to give a new feel
 class Home extends StatelessWidget {
   const Home({super.key});
 

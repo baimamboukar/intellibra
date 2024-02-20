@@ -6,6 +6,7 @@ import 'package:intellibra/src/features/onboarding/thememode/cubit/theme_cubit.d
 import 'package:intellibra/src/features/scan/presentation/widgets/intellibra_controller.dart';
 import 'package:intellibra/src/features/test.dart';
 
+//TODO: #35 redesign self check page to make it modern
 class SelfCheck extends StatelessWidget {
   const SelfCheck({super.key});
 
@@ -69,15 +70,17 @@ class _IntellibraStateBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => const FlutterBlueApp()));
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => const FlutterBlueApp()),
+        );
       },
       child: Container(
         height: 70,
         width: 70,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(14),
-            color: context.scheme.primary,),
+          borderRadius: BorderRadius.circular(14),
+          color: context.scheme.primary,
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [Icon(icon), Text(message)],

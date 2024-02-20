@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//TODO: #38 Implement Records feature
 class IntelliRecords extends StatelessWidget {
   const IntelliRecords({super.key});
 

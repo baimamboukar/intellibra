@@ -1,6 +1,8 @@
 import 'package:flex_seed_scheme/flex_seed_scheme.dart';
 import 'package:flutter/material.dart';
 
+// TODO: Adjust themeing system and make it more mordern-dark style
+
 class IntellibraTheme {
   static ThemeData get light => _getTheme(Brightness.light);
   static ThemeData get dark => _getTheme(Brightness.dark);

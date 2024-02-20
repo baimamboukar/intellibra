@@ -5,6 +5,8 @@ import 'package:intellibra/src/common/common.dart';
 import 'package:intellibra/src/extensions/build_context.dart';
 import 'package:intellibra/src/features/onboarding/thememode/cubit/theme_cubit.dart';
 
+///TODO: #32 Redesign welcome page to give a new feel
+///TODO: #33 add onboarding slider on welcome page
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
 
