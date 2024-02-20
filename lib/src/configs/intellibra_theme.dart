@@ -13,12 +13,12 @@ ThemeData _getTheme(Brightness brightness) => ThemeData(
       // brightness: brightness,
       fontFamily: 'Agrandir',
       colorScheme: SeedColorScheme.fromSeeds(
-        brightness: Brightness.dark,
+        brightness: brightness,
         primary: const Color(0xFFDA015F),
         primaryKey: const Color(0xFFDA015F),
-        secondary: const Color(0xFF626262),
-        tertiary: const Color(0xFF1B2121),
-        background: const Color(0xFFFF96A7),
-        tones: FlexTones.vivid(Brightness.light),
+        secondary: const Color(0xFF1B2121),
+        tertiary: const Color(0xFFEEFCE3),
+        background: const Color(0xFFF6F6F6),
+        tones: FlexTones.vivid(brightness),
       ),
     );

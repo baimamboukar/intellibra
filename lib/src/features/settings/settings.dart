@@ -21,7 +21,10 @@ class Settings extends StatelessWidget {
           children: [
             34.vGap,
             Center(
-              child: Image.asset(Assets.assetsIconsWomanPp),
+              child: Image.asset(
+                Assets.assetsIconsWoman,
+                height: 100,
+              ),
             ),
             4.vGap,
             Center(
