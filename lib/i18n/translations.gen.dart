@@ -324,20 +324,20 @@ AppLocale? _selectLocale(String localeRaw) {
     // match exactly
     selected = AppLocale.values.cast<AppLocale?>().firstWhere(
         (supported) => supported?.languageTag == localeRaw.replaceAll('_', '-'),
-        orElse: () => null);
+        orElse: () => null,);
 
     if (selected == null && language != null) {
       // match language
       selected = AppLocale.values.cast<AppLocale?>().firstWhere(
           (supported) => supported?.languageTag.startsWith(language) == true,
-          orElse: () => null);
+          orElse: () => null,);
     }
 
     if (selected == null && country != null) {
       // match country
       selected = AppLocale.values.cast<AppLocale?>().firstWhere(
           (supported) => supported?.languageTag.contains(country) == true,
-          orElse: () => null);
+          orElse: () => null,);
     }
   }
   return selected;
