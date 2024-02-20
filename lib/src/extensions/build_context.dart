@@ -43,6 +43,7 @@ extension IntellibraBuildContextExtension on BuildContext {
 
   /// Get the [ColorScheme] of the current [Theme].
   ColorScheme get scheme => theme.colorScheme;
+  ColorScheme get colorScheme => theme.colorScheme;
 
   /// Get the [Brightness] of the current [Theme].
   Brightness get brightness => theme.brightness;
