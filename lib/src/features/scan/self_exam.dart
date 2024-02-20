@@ -8,8 +8,12 @@ class SelfCheck extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SingleChildScrollView(
-        child: Center(
-          child: Text('Self-Check'),
+        child: Column(
+          children: [
+            Center(
+              child: Text('Self-Check'),
+            ),
+          ],
         ),
       ),
     );
