@@ -8,7 +8,6 @@ import 'package:meta/meta.dart';
 part 'scan_state.dart';
 
 class ScanCubit extends Cubit<ScanState> {
-
   ScanCubit() : super(ScanInitial());
   final repo = ScanRepository();
   StreamSubscription? _scanDevicesSubscription;

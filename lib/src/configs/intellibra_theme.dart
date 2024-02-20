@@ -1,6 +1,5 @@
 import 'package:flex_seed_scheme/flex_seed_scheme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class IntellibraTheme {
   static ThemeData get light => _getTheme(Brightness.light);
@@ -9,7 +8,7 @@ class IntellibraTheme {
 
 ThemeData _getTheme(Brightness brightness) => ThemeData(
       useMaterial3: true,
-      brightness: brightness,
+      // brightness: brightness,
       fontFamily: 'Agrandir',
       colorScheme: SeedColorScheme.fromSeeds(
         brightness: Brightness.dark,
