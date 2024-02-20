@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:intellibra/src/extensions/num.dart';
+import 'package:intellibra/src/extensions/widgetx.dart';
+import 'package:intellibra/src/features/scan/presentation/widgets/welcome_tile.dart';
 
 //TODO: #35 redesign self check page to make it modern
 class SelfCheck extends StatelessWidget {
@@ -6,15 +9,14 @@ class SelfCheck extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Center(
-              child: Text('Self-Check'),
-            ),
+            24.vGap,
+            const WelcomeTile(),
           ],
-        ),
+        ).hPadding,
       ),
     );
   }

@@ -3,6 +3,9 @@ import 'package:heroicons/heroicons.dart';
 import 'package:intellibra/src/extensions/build_context.dart';
 import 'package:intellibra/src/extensions/num.dart';
 
+const userAvatar =
+    'https://unsplash.com/photos/women-holding-her-collar-standing-near-wall-J1OScm_uHUQ';
+
 class WelcomeTile extends StatelessWidget {
   const WelcomeTile({super.key});
 
@@ -13,16 +16,14 @@ class WelcomeTile extends StatelessWidget {
         const CircleAvatar(
           radius: 24,
           backgroundImage: NetworkImage(
-            'https://images.unsplash.com/photo-1508002366005-75a695ee2d17?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1936&q=80',
+            userAvatar,
           ),
         ),
         12.hGap,
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Faatimah Corpse',
-            ),
+            const Text('Anzia Juvis'),
             Text(
               'Welcome Back 👋',
               style: context.bodyLg.copyWith(
