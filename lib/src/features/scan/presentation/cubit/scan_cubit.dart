@@ -36,26 +36,26 @@ class ScanCubit extends Cubit<ScanState> {
   Future<void> scanDevices() async {
     emit(ScanDeviceInit());
     try {
-      _scanDevicesSubscription =
-          Stream.periodic(const Duration(seconds: 2)).asyncMap((_) async {
-        try {
-          await repo.startScan();
-          final devices = repo.service.connectedDevices;
-          emit(ScanDeviceSuccess(devices: devices));
-          return devices;
-        } catch (e) {
-          emit(ScanDeviceFailure(message: e.toString()));
-        }
-      }).listen((event) {
-        if (event != null) {
-          print('${event.toList()}');
-          emit(ScanDeviceSuccess(devices: event));
-        }
-      });
+      // _scanDevicesSubscription =
+      //     Stream.periodic(const Duration(seconds: 2)).asyncMap((_) async {
+      //   try {
+      //     await repo.startScan();
+      //     final devices = repo.service.connectedDevices;
+      //     emit(ScanDeviceSuccess(devices: devices));
+      //     return devices;
+      //   } catch (e) {
+      //     emit(ScanDeviceFailure(message: e.toString()));
+      //   }
+      // }).listen((event) {
+      //   if (event != null) {
+      //     print('${event.toList()}');
+      //     emit(ScanDeviceSuccess(devices: event));
+      //   }
+      // });
       /* final devices = await repo.service.connectedDevices;
       emit(ScanDeviceSuccess(devices: devices)); */
     } catch (e) {
-      emit(ScanDeviceFailure(message: e.toString()));
+      //emit(ScanDeviceFailure(message: e.toString()));
     }
   }
 }
