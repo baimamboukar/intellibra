@@ -4,7 +4,7 @@ import 'package:intellibra/src/extensions/build_context.dart';
 import 'package:intellibra/src/extensions/num.dart';
 
 const userAvatar =
-    'https://unsplash.com/photos/women-holding-her-collar-standing-near-wall-J1OScm_uHUQ';
+    'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 
 class WelcomeTile extends StatelessWidget {
   const WelcomeTile({super.key});
@@ -49,7 +49,7 @@ class _NotificationsAction extends StatelessWidget {
       height: 38,
       width: 54,
       decoration: BoxDecoration(
-        color: context.colorScheme.onPrimary,
+        color: context.colorScheme.primaryContainer,
         borderRadius: BorderRadius.circular(32),
       ),
       child: Center(
