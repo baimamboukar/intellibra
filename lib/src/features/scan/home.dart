@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
+import 'package:intellibra/src/extensions/build_context.dart';
 import 'package:intellibra/src/router/intellibra_router.gr.dart' as routes;
 
 //TODO: #34 redesign navigation bar to give a new feel
@@ -22,46 +23,28 @@ class Home extends StatelessWidget {
           child: child,
         ),
         bottomNavigationBuilder: (context, router) {
-          return BottomNavigationBar(
-            //elevation: 12,
-            // selectedItemColor: Palette.primary,
-            //unselectedItemColor: Palette.primary.withOpacity(.55),
-            currentIndex: router.activeIndex,
-            onTap: (index) => router.setActiveIndex(index),
-            type: BottomNavigationBarType.fixed,
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(
-                  IconlyBroken.heart,
-                  size: 18,
-                ),
-                label: 'selfcheck',
+          return NavigationBar(
+            indicatorColor: context.scheme.primary.withOpacity(.25),
+            destinations: const [
+              NavigationDestination(
+                icon: Icon(IconlyBroken.heart),
+                label: 'Self-Check',
               ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  IconlyBroken.shield_done,
-                  size: 18,
-                ),
-                // backgroundColor: Palette.dark,
-                label: 'awareness',
+              NavigationDestination(
+                icon: Icon(IconlyBroken.shield_done),
+                label: 'Awareness',
               ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  IconlyBroken.folder,
-                  size: 18,
-                ),
-                // backgroundColor: Palette.dark,
-                label: 'records',
+              NavigationDestination(
+                icon: Icon(IconlyBroken.folder),
+                label: 'Records',
               ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  IconlyBroken.user_2,
-                  size: 18,
-                ),
-                // backgroundColor: Palette.dark,
-                label: 'profile',
+              NavigationDestination(
+                icon: Icon(IconlyBroken.user_2),
+                label: 'Profile',
               ),
             ],
+            selectedIndex: router.activeIndex,
+            onDestinationSelected: (index) => router.setActiveIndex(index),
           );
         },
       ),
