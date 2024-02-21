@@ -10,16 +10,16 @@ class DeviceSwitch extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 58,
-      width: context.width * .5,
+      width: context.width * .68,
       decoration: BoxDecoration(
-        color: context.scheme.primary,
-        borderRadius: BorderRadius.circular(48),
+        color: context.scheme.primary.withOpacity(.3),
+        borderRadius: BorderRadius.circular(58),
       ),
       child: Row(
         children: [
           Container(
-            height: 40,
-            width: 40,
+            height: 68,
+            width: 68,
             decoration: BoxDecoration(
               color: context.scheme.background,
               shape: BoxShape.circle,
@@ -38,7 +38,7 @@ class DeviceSwitch extends StatelessWidget {
             color: context.scheme.background,
           ),
         ],
-      ).hPaddingx(8).vPaddingx(8),
+      ).hPaddingx(1).vPaddingx(8),
     );
   }
 }

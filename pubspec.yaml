@@ -7,8 +7,10 @@ environment:
   sdk: ">=2.19.0 <3.0.0"
 
 dependencies:
+  action_slider: ^0.7.0
   auto_route: ^5.0.4
   bloc: ^8.1.1
+  bottom_sheet_bar: ^2.3.9
   cloud_firestore: ^4.4.3
   collection: ^1.17.0
   dartz: ^0.10.1
