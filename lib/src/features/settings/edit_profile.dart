@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 @RoutePage()
 class EditProfile extends StatelessWidget {
-const EditProfile({ Key? key }) : super(key: key);
+const EditProfile({ super.key });
 
   @override
   Widget build(BuildContext context){

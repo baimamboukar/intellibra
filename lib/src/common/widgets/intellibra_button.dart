@@ -122,7 +122,7 @@ class IntellibraFlexibleButton extends StatelessWidget {
     this.color = Palette.primary,
     super.key,
     this.icon,
-    this.padding
+    this.padding,
 
   });
   final IconData? icon;
