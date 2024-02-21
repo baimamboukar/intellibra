@@ -31,11 +31,13 @@ class Settings extends StatelessWidget {
             4.vGap,
             ProfileCard(
               children: [
-                Center(
-                  child: Text(
-                    'User Name',
-                    style: context.theme.textTheme.bodyLarge,
-                  ),
+                Text(
+                  'Baima Boukara',
+                  style: context.theme.textTheme.titleLarge,
+                ),
+                Text(
+                  'baima@gmail.com',
+                  style: context.theme.textTheme.bodyLarge,
                 ),
                 14.vGap,
                 Row(
@@ -56,7 +58,46 @@ class Settings extends StatelessWidget {
                 ),
               ],
             ),
-            34.vGap,
+            24.vGap,
+            ProfileCard(
+              children: [
+                Text(
+                  'Intellibra Member Since',
+                  style: context.theme.textTheme.titleLarge,
+                ),
+                Text(
+                  'Feb 21, 2024',
+                  style: context.theme.textTheme.bodyLarge,
+                ),
+              ],
+            ),
+            ProfileCard(
+              children: [
+                const Text(
+                  'Intellibra Settings',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                4.vGap,
+                ActionLabelWithDivider(
+                  label: 'Account',
+                  icon: IconlyBroken.profile,
+                  onTap: () {},
+                ),
+                ActionLabelWithDivider(
+                  icon: Hicons.card_1_bold,
+                  label: 'Billing',
+                  onTap: () {},
+                ),
+                ActionLabel(
+                  icon: Icons.phone_iphone,
+                  label: 'App',
+                  onTap: () {},
+                ),
+              ],
+            ),
             /* const Center(
               child: Text(
                 'Settings',
@@ -181,20 +222,21 @@ class ProfileCard extends StatelessWidget {
       child: DecoratedBox(
         decoration: BoxDecoration(
           color: context.scheme.surface,
-          borderRadius: BorderRadius.circular(8),
-          boxShadow: [
+          borderRadius: BorderRadius.circular(16),
+         /*  boxShadow: [
             BoxShadow(
               color: context.scheme.primary.withOpacity(0.2),
               blurRadius: 10,
               spreadRadius: 2,
             ),
-          ],
+          ], */
         ),
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: SizedBox(
             width: MediaQuery.of(context).size.width * .9,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: children,
             ),
           ),

@@ -8,6 +8,7 @@ class IntellibraButton extends StatelessWidget {
   const IntellibraButton({
     required this.text,
     this.action,
+    this.buttonRadius,
     this.color = Palette.primary,
     super.key,
     this.width = .9,
@@ -18,6 +19,7 @@ class IntellibraButton extends StatelessWidget {
   final VoidCallback? action;
   final Color color;
   final double width;
+  final double? buttonRadius ;
 
   @override
   Widget build(BuildContext context) {
@@ -28,14 +30,14 @@ class IntellibraButton extends StatelessWidget {
         height: Constants.buttonHeight,
         decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.circular(Constants.borderRadius),
+          borderRadius: BorderRadius.circular(buttonRadius ?? Constants.borderRadius),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (icon != null) ...[
-              8.hGap,
               Icon(icon, color: Palette.lightColor,),
+              8.hGap,
             ] else
               const SizedBox.shrink(),
             Text(
@@ -86,7 +88,7 @@ class IntellibraButtonSmall extends StatelessWidget {
     this.action,
     this.color = Palette.primary,
     super.key,
-    this.width = .28,
+    this.width = .30,
     this.icon,
   });
   final IconData? icon;
@@ -103,6 +105,7 @@ class IntellibraButtonSmall extends StatelessWidget {
       color: color,
       width: width,
       icon: icon,
+      buttonRadius: 16,
     );
   }
 }
