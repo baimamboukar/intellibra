@@ -11,7 +11,7 @@ class IntellibraTheme {
 ThemeData _getTheme(Brightness brightness) => ThemeData(
       useMaterial3: true,
       brightness: brightness,
-      fontFamily: 'Agrandir',
+      fontFamily: 'Gilroy',
       colorScheme: SeedColorScheme.fromSeeds(
         brightness: brightness,
         primary: const Color(0xFFDA015F),

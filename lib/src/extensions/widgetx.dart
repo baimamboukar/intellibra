@@ -17,4 +17,9 @@ extension WidgetX on Widget {
         padding: EdgeInsets.symmetric(vertical: x),
         child: this,
       );
+
+  Align get floatL => Align(
+        alignment: Alignment.centerLeft,
+        child: this,
+      );
 }

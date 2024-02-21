@@ -20,6 +20,7 @@ dependencies:
   flutter_bloc: ^8.1.2
   flutter_blue_plus: ^1.10.9
   flutter_gemini: ^2.0.3
+  flutter_heatmap_calendar: ^1.0.5
   flutter_hicons: ^0.1.0
   flutter_localizations:
     sdk: flutter

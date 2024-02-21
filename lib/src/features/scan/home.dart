@@ -25,6 +25,7 @@ class Home extends StatelessWidget {
         bottomNavigationBuilder: (context, router) {
           return NavigationBar(
             indicatorColor: context.scheme.primary.withOpacity(.25),
+            //  backgroundColor: context.scheme.primary,
             destinations: const [
               NavigationDestination(
                 icon: Icon(IconlyBroken.heart),
