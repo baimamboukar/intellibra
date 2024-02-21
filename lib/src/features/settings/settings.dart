@@ -41,17 +41,19 @@ class Settings extends StatelessWidget {
                 ),
                 14.vGap,
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    IntellibraButtonSmall(
+                    IntellibraFlexibleButton(
                       text: 'Edit Profile',
                       icon: IconlyBroken.edit,
+                                            buttonRadius: 32,
                       action: () {},
                     ),
                     8.hGap,
-                    IntellibraButtonSmall(
+                    IntellibraFlexibleButton(
                       text: 'Sign Out',
                       icon: IconlyBroken.logout,
+                      buttonRadius: 32,
                       action: () {},
                     ),
                   ],

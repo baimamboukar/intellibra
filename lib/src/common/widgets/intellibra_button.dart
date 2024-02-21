@@ -19,7 +19,7 @@ class IntellibraButton extends StatelessWidget {
   final VoidCallback? action;
   final Color color;
   final double width;
-  final double? buttonRadius ;
+  final double? buttonRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -30,13 +30,17 @@ class IntellibraButton extends StatelessWidget {
         height: Constants.buttonHeight,
         decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.circular(buttonRadius ?? Constants.borderRadius),
+          borderRadius:
+              BorderRadius.circular(buttonRadius ?? Constants.borderRadius),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (icon != null) ...[
-              Icon(icon, color: Palette.lightColor,),
+              Icon(
+                icon,
+                color: Palette.lightColor,
+              ),
               8.hGap,
             ] else
               const SizedBox.shrink(),
@@ -106,6 +110,62 @@ class IntellibraButtonSmall extends StatelessWidget {
       width: width,
       icon: icon,
       buttonRadius: 16,
+    );
+  }
+}
+
+class IntellibraFlexibleButton extends StatelessWidget {
+  const IntellibraFlexibleButton({
+    required this.text,
+    this.action,
+    this.buttonRadius,
+    this.color = Palette.primary,
+    super.key,
+    this.icon,
+    this.padding
+
+  });
+  final IconData? icon;
+  final String text;
+  final VoidCallback? action;
+  final Color color;
+  final double? buttonRadius;
+  final EdgeInsets? padding;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: action,
+      child: Container(
+        padding: padding ?? const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+        height: Constants.buttonHeight,
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius:
+              BorderRadius.circular(buttonRadius ?? Constants.borderRadius),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            if (icon != null) ...[
+              Icon(
+                icon,
+                color: Palette.lightColor,
+              ),
+              8.hGap,
+            ] else
+              const SizedBox.shrink(),
+            Text(
+              text,
+              overflow: TextOverflow.ellipsis,
+              style: context.bodyLg.copyWith(
+                color: context.scheme.onPrimary,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
