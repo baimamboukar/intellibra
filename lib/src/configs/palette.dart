@@ -8,4 +8,5 @@ class Palette {
   static const Color primaryTextColor = Color(0xFF212121);
   static const Color secondaryTextColor = Color(0xFF757575);
   static const Color dividerColor = Color(0xFFBDBDBD);
+  static const Color lightColor = Color(0xFFE0E0E0);
 }

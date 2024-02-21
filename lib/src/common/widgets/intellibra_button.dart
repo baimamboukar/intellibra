@@ -33,18 +33,19 @@ class IntellibraButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            if (icon != null) ...[
+              8.hGap,
+              Icon(icon, color: Palette.lightColor,),
+            ] else
+              const SizedBox.shrink(),
             Text(
               text,
+              overflow: TextOverflow.ellipsis,
               style: context.bodyLg.copyWith(
                 color: context.scheme.onPrimary,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            if (icon != null) ...[
-              8.hGap,
-              Icon(icon),
-            ] else
-              const SizedBox.shrink(),
           ],
         ),
       ),
@@ -59,6 +60,33 @@ class IntellibraButtonMedium extends StatelessWidget {
     this.color = Palette.primary,
     super.key,
     this.width = .35,
+    this.icon,
+  });
+  final IconData? icon;
+  final String text;
+  final VoidCallback? action;
+  final Color color;
+  final double width;
+
+  @override
+  Widget build(BuildContext context) {
+    return IntellibraButton(
+      text: text,
+      action: action,
+      color: color,
+      width: width,
+      icon: icon,
+    );
+  }
+}
+
+class IntellibraButtonSmall extends StatelessWidget {
+  const IntellibraButtonSmall({
+    required this.text,
+    this.action,
+    this.color = Palette.primary,
+    super.key,
+    this.width = .28,
     this.icon,
   });
   final IconData? icon;

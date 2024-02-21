@@ -4,6 +4,7 @@ import 'package:flutter_hicons/flutter_hicons.dart';
 import 'package:iconly/iconly.dart';
 import 'package:intellibra/src/app/assets.dart';
 import 'package:intellibra/src/common/common.dart';
+import 'package:intellibra/src/common/widgets/intellibra_button.dart';
 import 'package:intellibra/src/common/widgets/mark.dart';
 import 'package:intellibra/src/extensions/build_context.dart';
 import 'package:intellibra/src/extensions/num.dart';
@@ -20,6 +21,51 @@ class Settings extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            34.vGap,
+            const Center(
+              child: CircleAvatar(
+                backgroundImage: AssetImage(Assets.assetsIconsWoman),
+                radius: 50,
+              ),
+            ),
+            4.vGap,
+            ProfileCard(
+              children: [
+                Center(
+                  child: Text(
+                    'User Name',
+                    style: context.theme.textTheme.bodyLarge,
+                  ),
+                ),
+                14.vGap,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IntellibraButtonSmall(
+                      text: 'Edit Profile',
+                      icon: IconlyBroken.edit,
+                      action: () {},
+                    ),
+                    8.hGap,
+                    IntellibraButtonSmall(
+                      text: 'Sign Out',
+                      icon: IconlyBroken.logout,
+                      action: () {},
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            34.vGap,
+            /* const Center(
+              child: Text(
+                'Settings',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
             34.vGap,
             Center(
               child: Image.asset(
@@ -110,11 +156,48 @@ class Settings extends StatelessWidget {
               onTap: () {
                 context.router.pushNamed('/home');
               },
-            ),
+            ), */
             34.vGap,
             const TradeMark(),
             8.vGap,
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class ProfileCard extends StatelessWidget {
+  const ProfileCard({
+    required this.children,
+    super.key,
+  });
+  final List<Widget> children;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: context.scheme.surface,
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: [
+            BoxShadow(
+              color: context.scheme.primary.withOpacity(0.2),
+              blurRadius: 10,
+              spreadRadius: 2,
+            ),
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width * .9,
+            child: Column(
+              children: children,
+            ),
+          ),
         ),
       ),
     );

@@ -7,11 +7,10 @@ class Assets {
 
   /// Assets for assetsIconsWoman
   /// assets/icons/woman.jpg
-  static const String assetsIconsWoman = 'assets/icons/woman.jpg';
+  static const String assetsIconsWoman = 'icons/profile_placeholder.png';
 
   /// Assets for assetsIconsWomanPp
   /// assets/icons/woman_pp.png
-  static const String assetsIconsWomanPp = 'assets/icons/profile_placeholder.png';
-
-
+  static const String assetsIconsWomanPp = 'assets/icons/woman_pp.png';
+  
 }
