@@ -1,12 +1,15 @@
+import 'package:action_slider/action_slider.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:bottom_sheet/bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:glass_kit/glass_kit.dart';
 import 'package:heroicons/heroicons.dart';
-import 'package:intellibra/src/app/assets.dart';
+import 'package:intellibra/src/common/common.dart';
 import 'package:intellibra/src/extensions/build_context.dart';
 import 'package:intellibra/src/extensions/num.dart';
 import 'package:intellibra/src/extensions/widgetx.dart';
+import 'package:intellibra/src/features/scan/presentation/widgets/connected_device.dart';
 import 'package:intellibra/src/features/scan/presentation/widgets/device_switch.dart';
-import 'package:shadow_overlay/shadow_overlay.dart';
 
 class DeviceBox extends StatelessWidget {
   const DeviceBox({
@@ -28,39 +31,105 @@ class DeviceBox extends StatelessWidget {
               children: [
                 const _DeviceStateSection(),
                 14.vGap,
-                Text(
-                  'Connect to Device',
-                  style: context.bodySm.copyWith(
-                    color: context.scheme.secondary,
-                  ),
-                ).floatL,
                 const Spacer(),
-                Visibility(
-                  visible: false,
-                  replacement: const DeviceSwitch(),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      HeroIcon(
-                        HeroIcons.signal,
-                        color: context.scheme.primary,
-                        size: 22,
-                      ),
-                      4.hGap,
-                      Text(
-                        'Intellibra G23FB ',
-                        style: context.bodyMd.copyWith(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
+                ActionSlider.standard(
+                  boxShadow: const [],
+                  height: 58,
+                  width: context.width * .55,
+                  icon: Container(
+                    height: 68,
+                    width: 68,
+                    decoration: BoxDecoration(
+                      color: context.scheme.primary,
+                      shape: BoxShape.circle,
+                    ),
+                    child: HeroIcon(
+                      HeroIcons.power,
+                      size: 22,
+                      color: context.scheme.onPrimary,
+                    ),
                   ),
+                  customBackgroundBuilder: (context, state, child) {
+                    return GlassContainer.frostedGlass(
+                      height: 58,
+                      width: context.width * .55,
+                      borderWidth: 0,
+                      borderColor: context.scheme.primaryContainer,
+                      borderRadius: BorderRadius.circular(58),
+                      blur: 12,
+                      child: child,
+                    );
+                  },
+                  sliderBehavior: SliderBehavior.stretch,
+                  customBackgroundBuilderChild: Padding(
+                    padding: const EdgeInsets.only(left: 54),
+                    child: Row(
+                      children: [
+                        const Text('Connect'),
+                        const Spacer(),
+                        HeroIcon(
+                          HeroIcons.chevronRight,
+                          size: 14,
+                          color: context.scheme.primary.withOpacity(.35),
+                        ),
+                        HeroIcon(
+                          HeroIcons.chevronRight,
+                          size: 16,
+                          color: context.scheme.primary.withOpacity(.55),
+                        ),
+                        HeroIcon(
+                          HeroIcons.chevronRight,
+                          size: 20,
+                          color: context.scheme.primary,
+                        ),
+                      ],
+                    ),
+                  ),
+                  action: (controller) async {
+                    controller.loading();
+                    await Future<void>.delayed(const Duration(seconds: 3));
+                    if (context.mounted) {
+                      await showStickyFlexibleBottomSheet<void>(
+                        minHeight: 0,
+                        initHeight: 0.5,
+                        maxHeight: 1,
+                        headerHeight: 200,
+                        bottomSheetBorderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(24),
+                          topRight: Radius.circular(24),
+                        ),
+                        context: context,
+                        headerBuilder: (BuildContext context, double offset) {
+                          return Container();
+                        },
+                        bodyBuilder: (BuildContext context, double offset) {
+                          return SliverChildListDelegate(
+                            <Widget>[
+                              const Text('Hello'),
+                              IntellibraButton(
+                                text: 'Connect',
+                                action: () {
+                                  context.router.pop();
+                                  controller
+                                    ..success()
+                                    ..reset();
+                                },
+                              ),
+                            ],
+                          );
+                        },
+                        anchors: [0, 0.5, 1],
+                      );
+                    }
+                  },
                 ),
+
+                // const BottomAction(),
               ],
-            ).hPaddingx(8).vPaddingx(8),
+            ).hPaddingx(4).vPaddingx(8),
           ),
           Container(
-            width: context.width * 0.35,
+            width: context.width * 0.3,
             height: 180,
             decoration: BoxDecoration(
               color: context.scheme.primary,
@@ -69,26 +138,37 @@ class DeviceBox extends StatelessWidget {
                 bottomRight: Radius.circular(22),
               ),
             ),
-            child: Container(
-              width: context.width * 0.35,
-              height: 180,
-              decoration: BoxDecoration(
-                color: context.scheme.primary.withOpacity(.34),
-                borderRadius: const BorderRadius.only(
-                  topRight: Radius.circular(22),
-                  bottomRight: Radius.circular(22),
-                ),
-              ),
-              child: Center(
-                child: ShadowOverlay(
-                  shadowHeight: 60,
-                  shadowWidth: context.width * 0.35,
-                  shadowColor: context.scheme.primary.withOpacity(0.9),
-                  child: Image.asset(
-                    Assets.assetsIconsIntellibra,
-                  ),
-                ),
-              ),
+            child: const ConnectedDevice(),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class BottomAction extends StatelessWidget {
+  const BottomAction({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Visibility(
+      visible: false,
+      replacement: const DeviceSwitch(),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          HeroIcon(
+            HeroIcons.signal,
+            color: context.scheme.primary,
+            size: 22,
+          ),
+          4.hGap,
+          Text(
+            'Intellibra G23FB ',
+            style: context.bodyMd.copyWith(
+              fontWeight: FontWeight.bold,
             ),
           ),
         ],

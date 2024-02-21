@@ -10,6 +10,7 @@ dependencies:
   action_slider: ^0.7.0
   auto_route: ^5.0.4
   bloc: ^8.1.1
+  bottom_sheet: ^4.0.0
   bottom_sheet_bar: ^2.3.9
   cloud_firestore: ^4.4.3
   collection: ^1.17.0
@@ -34,11 +35,13 @@ dependencies:
   hydrated_bloc: ^9.1.0
   iconly: ^1.0.1
   intl: ^0.18.0
+  modal_bottom_sheet: ^2.1.2
   palette_generator: ^0.3.3+2
   path_provider: ^2.0.13
   permission_handler: ^10.4.3
   pinput: ^2.2.31
   shadow_overlay: ^1.0.5
+  swipe_refresh: ^1.0.2
   url_launcher: ^6.1.10
 
 dev_dependencies:
