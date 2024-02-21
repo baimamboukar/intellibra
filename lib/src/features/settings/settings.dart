@@ -6,10 +6,10 @@ import 'package:intellibra/src/app/assets.dart';
 import 'package:intellibra/src/common/common.dart';
 import 'package:intellibra/src/common/widgets/intellibra_button.dart';
 import 'package:intellibra/src/common/widgets/mark.dart';
+import 'package:intellibra/src/configs/intellibra_pathname.dart';
 import 'package:intellibra/src/extensions/build_context.dart';
 import 'package:intellibra/src/extensions/num.dart';
 import 'package:intellibra/src/features/settings/widgets/action_tile.dart';
-import 'package:intellibra/src/features/settings/widgets/language_dialog.dart';
 
 //TODO: #36 redesign profile page to give a new feel
 @RoutePage()
@@ -45,14 +45,16 @@ class Settings extends StatelessWidget {
                   children: [
                     IntellibraFlexibleButton(
                       text: 'Edit Profile',
+                      color: context.scheme.primary.withOpacity(0.5),
                       icon: IconlyBroken.edit,
-                                            buttonRadius: 32,
+                      buttonRadius: 32,
                       action: () {},
                     ),
                     8.hGap,
                     IntellibraFlexibleButton(
                       text: 'Sign Out',
                       icon: IconlyBroken.logout,
+                      color: context.scheme.primary.withOpacity(0.5),
                       buttonRadius: 32,
                       action: () {},
                     ),
@@ -86,17 +88,19 @@ class Settings extends StatelessWidget {
                 ActionLabelWithDivider(
                   label: 'Account',
                   icon: IconlyBroken.profile,
-                  onTap: () {},
+                  onTap: () =>
+                      context.router.pushNamed(PathName.accountSettings),
                 ),
                 ActionLabelWithDivider(
                   icon: Hicons.card_1_bold,
                   label: 'Billing',
-                  onTap: () {},
+                  onTap: () =>
+                      context.router.pushNamed(PathName.billingSettings),
                 ),
                 ActionLabel(
                   icon: Icons.phone_iphone,
                   label: 'App',
-                  onTap: () {},
+                  onTap: () => context.router.pushNamed(PathName.appSettings),
                 ),
               ],
             ),
@@ -223,9 +227,9 @@ class ProfileCard extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: context.scheme.surface,
+          color: context.scheme.onPrimary,
           borderRadius: BorderRadius.circular(16),
-         /*  boxShadow: [
+          /*  boxShadow: [
             BoxShadow(
               color: context.scheme.primary.withOpacity(0.2),
               blurRadius: 10,

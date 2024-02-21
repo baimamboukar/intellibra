@@ -150,7 +150,7 @@ class IntellibraFlexibleButton extends StatelessWidget {
             if (icon != null) ...[
               Icon(
                 icon,
-                color: Palette.lightColor,
+                color: Colors.white,
               ),
               8.hGap,
             ] else
