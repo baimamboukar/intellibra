@@ -56,9 +56,15 @@ flutter:
     - assets/icons/
     - assets/fonts/
   fonts:
-    - family: Agrandir
+    - family: Baguede
       fonts:
-        - asset: assets/fonts/agrandir.ttf
+        - asset: assets/fonts/baguede.otf
+    - family: GoogleSans
+      fonts:
+        - asset: assets/fonts/google-sans.ttf
+    - family: Gilroy
+      fonts:
+        - asset: assets/fonts/Gilroy-Regular.ttf
 icons_launcher:
   image_path: "assets/icons/logo.png"
   platforms:
