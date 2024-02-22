@@ -22,4 +22,8 @@ extension WidgetX on Widget {
         alignment: Alignment.centerLeft,
         child: this,
       );
+  Align get floatR => Align(
+        alignment: Alignment.centerRight,
+        child: this,
+      );
 }
