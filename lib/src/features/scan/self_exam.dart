@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intellibra/src/extensions/num.dart';
 import 'package:intellibra/src/extensions/widgetx.dart';
 import 'package:intellibra/src/features/scan/presentation/widgets/device_box.dart';
+import 'package:intellibra/src/features/scan/presentation/widgets/home_actions.dart';
 import 'package:intellibra/src/features/scan/presentation/widgets/recent_checkups.dart';
 import 'package:intellibra/src/features/scan/presentation/widgets/welcome_tile.dart';
 
@@ -17,20 +18,23 @@ class SelfCheck extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            24.vGap,
+            18.vGap,
 
             const WelcomeTile(),
 
-            24.vGap,
+            14.vGap,
+
             //const DeviceSwitch(),
             //24.vGap,
             // const ScanHistory(),
             14.vGap,
-            const DeviceBox(),
+            const DeviceBox().hPadding,
+            14.vGap,
+            const ActionsList(),
             28.vGap,
-            const RecentChekups(),
+            const RecentChekups().hPadding,
           ],
-        ).hPadding,
+        ),
       ),
     );
   }

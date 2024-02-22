@@ -26,10 +26,16 @@ class DeviceSwitch extends StatelessWidget {
           color: context.scheme.primary,
           shape: BoxShape.circle,
         ),
-        child: HeroIcon(
-          HeroIcons.power,
-          size: 22,
-          color: context.scheme.onPrimary,
+        child: GlassContainer.frostedGlass(
+          height: 68,
+          width: 68,
+          blur: 14,
+          shape: BoxShape.circle,
+          child: HeroIcon(
+            HeroIcons.power,
+            size: 22,
+            color: context.scheme.onPrimary,
+          ),
         ),
       ),
       customBackgroundBuilder: (context, state, child) {
