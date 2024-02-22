@@ -1,14 +1,13 @@
 import 'package:action_slider/action_slider.dart';
-import 'package:auto_route/auto_route.dart';
 import 'package:bottom_sheet/bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:glass_kit/glass_kit.dart';
 import 'package:heroicons/heroicons.dart';
 import 'package:intellibra/src/app/assets.dart';
-import 'package:intellibra/src/common/common.dart';
 import 'package:intellibra/src/extensions/build_context.dart';
 import 'package:intellibra/src/extensions/num.dart';
 import 'package:intellibra/src/extensions/widgetx.dart';
+import 'package:intellibra/src/features/scan/presentation/widgets/device_pair_action.dart';
 
 class DeviceSwitch extends StatelessWidget {
   const DeviceSwitch({super.key});
@@ -80,7 +79,7 @@ class DeviceSwitch extends StatelessWidget {
         if (context.mounted) {
           await showFlexibleBottomSheet<void>(
             minHeight: 0,
-            initHeight: 0.5,
+            initHeight: 0.75,
             maxHeight: 1,
             bottomSheetColor: context.colorScheme.onPrimary,
             bottomSheetBorderRadius: const BorderRadius.only(
@@ -118,7 +117,7 @@ class _DevicePairingState extends State<DevicePairing> {
     return Column(
       children: <Widget>[
         Text(
-          'INTELLIBRA CE12XFMZ',
+          'Device Pairing',
           style: context.bodyLg.copyWith(
             color: context.scheme.primary,
             fontWeight: FontWeight.bold,
@@ -144,21 +143,106 @@ class _DevicePairingState extends State<DevicePairing> {
           ),
         ),
         18.vGap,
-        Center(
-          child: IntellibraButton(
-            text: 'Connect',
-            width: .55,
-            color: context.scheme.primary,
-            //icon: Icons.local_activity,
-            action: () {
-              context.router.pop();
-              widget.controller
-                ..success()
-                ..reset();
-            },
+        Text(
+          'Device Infos',
+          style: context.bodyLg.copyWith(
+            color: context.scheme.tertiary,
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
           ),
+        ).floatL.hPaddingx(8),
+        8.vGap,
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            DeviceInfoBox(
+              info: 'Device Size',
+              value: '32',
+              unit: 'XXL',
+              icon: HeroIcons.scissors,
+            ),
+            DeviceInfoBox(
+              info: 'Device Battery',
+              value: '48',
+              unit: '%',
+              icon: HeroIcons.battery50,
+            ),
+            DeviceInfoBox(
+              info: 'Capacity',
+              value: '128',
+              unit: 'volts',
+              icon: HeroIcons.bolt,
+            ),
+          ],
+        ),
+        const Spacer(),
+        DevicePairAction(
+          controller: widget.controller,
         ),
       ],
     ).hPadding.vPadding;
+  }
+}
+
+class DeviceInfoBox extends StatelessWidget {
+  const DeviceInfoBox({
+    required this.info,
+    required this.value,
+    required this.unit,
+    required this.icon,
+    super.key,
+  });
+  final String info;
+  final String value;
+  final String unit;
+  final HeroIcons icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 104,
+      width: (context.width / 3) - 14,
+      decoration: BoxDecoration(
+        color: context.scheme.tertiary,
+        borderRadius: BorderRadius.circular(22),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          HeroIcon(
+            icon,
+            size: 20,
+            color: context.scheme.onPrimary,
+          ),
+          8.vGap,
+          Text(
+            info,
+            style: context.bodySm.copyWith(
+              color: context.scheme.onPrimary,
+            ),
+          ),
+          8.vGap,
+          Row(
+            children: [
+              Text(
+                value,
+                style: context.titleLg.copyWith(
+                  color: context.scheme.onPrimary,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              4.hGap,
+              Text(
+                unit,
+                style: context.bodySm.copyWith(
+                  color: context.scheme.onPrimary,
+                ),
+              ),
+            ],
+          ),
+        ],
+      ).hPaddingx(8).vPaddingx(8),
+    );
   }
 }

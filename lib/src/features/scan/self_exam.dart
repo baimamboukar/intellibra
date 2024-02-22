@@ -19,6 +19,7 @@ class SelfCheck extends StatelessWidget {
         child: Column(
           children: [
             18.vGap,
+
             const WelcomeTile(),
             14.vGap,
             const ActionsList(),
