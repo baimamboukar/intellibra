@@ -21,10 +21,13 @@ class Home extends StatelessWidget {
           routes.Settings(),
         ],
         floatingActionButtonBuilder: (context, router) {
-          return FloatingActionButton(
-            onPressed: () {},
-            child: const HeroIcon(HeroIcons.sparkles),
-          );
+          if (router.activeIndex == 0) {
+            return FloatingActionButton(
+              onPressed: () {},
+              child: const HeroIcon(HeroIcons.sparkles),
+            );
+          }
+          return null;
         },
         transitionBuilder: (context, child, animation) => ScaleTransition(
           scale: animation,

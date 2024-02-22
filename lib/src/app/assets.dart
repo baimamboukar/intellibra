@@ -72,7 +72,7 @@ class Assets {
 
   /// Assets for assetsIconsWoman
   /// assets/icons/woman.jpg
-  static const String assetsIconsWoman = 'icons/profile_placeholder.png';
+  static const String assetsIconsWoman = 'icons/woman.jpg';
 
   /// Assets for assetsIconsWomanPp
   /// assets/icons/woman_pp.png
