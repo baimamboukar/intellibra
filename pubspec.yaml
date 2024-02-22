@@ -12,7 +12,7 @@ dependencies:
   collection: ^1.17.0
   dartz: ^0.10.1
   firebase_core: ^2.25.4
-  firebase_auth: ^4.17.5
+  firebase_auth: ^4.17.4
   cloud_firestore: ^4.15.5
   flex_seed_scheme: ^1.4.0
   flutter:

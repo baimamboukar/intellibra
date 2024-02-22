@@ -5,7 +5,7 @@
  * Locales: 5
  * Strings: 5 (1.0 per locale)
  *
- * Built on 2024-02-20 at 21:38 UTC
+ * Built on 2024-02-22 at 10:15 UTC
  */
 
 import 'package:flutter/widgets.dart';
@@ -125,12 +125,14 @@ class AppLocaleUtils {
 	/// Returns the locale of the device as the enum type.
 	/// Fallbacks to base locale.
 	static AppLocale findDeviceLocale() {
-		final deviceLocale = WidgetsBinding.instance.window.locale.toLanguageTag();
+		final String? deviceLocale = WidgetsBinding.instance.window.locale.toLanguageTag();
+		if (deviceLocale != null) {
 			final typedLocale = _selectLocale(deviceLocale);
 			if (typedLocale != null) {
 				return typedLocale;
 			}
-				return _baseLocale;
+		}
+		return _baseLocale;
 	}
 
 	/// Returns the enum type of the raw locale.
@@ -156,11 +158,11 @@ mixin PageData2 {
 
 // translation instances
 
-TranslationsEn _translationsEn = TranslationsEn.build();
-TranslationsDe _translationsDe = TranslationsDe.build();
-TranslationsEs _translationsEs = TranslationsEs.build();
-TranslationsFr _translationsFr = TranslationsFr.build();
-TranslationsFul _translationsFul = TranslationsFul.build();
+late TranslationsEn _translationsEn = TranslationsEn.build();
+late TranslationsDe _translationsDe = TranslationsDe.build();
+late TranslationsEs _translationsEs = TranslationsEs.build();
+late TranslationsFr _translationsFr = TranslationsFr.build();
+late TranslationsFul _translationsFul = TranslationsFul.build();
 
 // extensions for AppLocale
 
@@ -269,13 +271,13 @@ class _TranslationProviderState extends State<TranslationProvider> {
 	}
 }
 
-class _InheritedLocaleData extends InheritedWidget { // store translations to avoid switch call
-
-	_InheritedLocaleData({required this.locale, required super.child})
-		: translations = locale.translations;
+class _InheritedLocaleData extends InheritedWidget {
 	final AppLocale locale;
 	Locale get flutterLocale => locale.flutterLocale; // shortcut
-	final TranslationsEn translations;
+	final TranslationsEn translations; // store translations to avoid switch call
+
+	_InheritedLocaleData({required this.locale, required Widget child})
+		: translations = locale.translations, super(child: child);
 
 	@override
 	bool updateShouldNotify(_InheritedLocaleData oldWidget) {
