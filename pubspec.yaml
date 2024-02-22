@@ -7,6 +7,9 @@ environment:
   sdk: ">=2.19.0 <3.0.0"
 
 dependencies:
+  action_slider: ^0.7.0
+  bottom_sheet: ^4.0.0
+  bottom_sheet_bar: ^2.3.9
   auto_route: ^7.8.4
   bloc: ^8.1.1
   collection: ^1.17.0
@@ -20,28 +23,36 @@ dependencies:
   flutter_bloc: ^8.1.2
   flutter_blue_plus: ^1.10.9
   flutter_gemini: ^2.0.3
+  flutter_heatmap_calendar: ^1.0.5
   flutter_hicons: ^0.1.0
   flutter_localizations:
     sdk: flutter
   flutter_native_splash: ^2.2.18
   get_it: ^7.2.0
+  glass_kit: ^3.0.0
   google_fonts: ^6.1.0
   heroicons: ^0.9.0
   hydrated_bloc: ^9.1.0
   iconly: ^1.0.1
+  image_stack: ^2.1.1
   intl: ^0.18.0
+  modal_bottom_sheet: ^2.1.2
   palette_generator: ^0.3.3+2
   path_provider: ^2.0.13
   permission_handler: ^11.3.0
   pinput: ^4.0.0
   shadow_overlay: ^1.0.5
+  swipe_refresh: ^1.0.2
+  syncfusion_flutter_gauges: ^24.2.7
   url_launcher: ^6.1.10
+  #flutter_gen: ^5.4.0
 
 dev_dependencies:
   auto_route_generator: ^7.3.2
   bloc_test: ^9.1.1
   build_runner: ^2.3.3
   fast_i18n: ^5.12.6
+  #flutter_gen_runner: ^5.4.0
   flutter_test:
     sdk: flutter
   mocktail: ^1.0.3
@@ -55,9 +66,15 @@ flutter:
     - assets/icons/
     - assets/fonts/
   fonts:
-    - family: Agrandir
+    - family: Baguede
       fonts:
-        - asset: assets/fonts/agrandir.ttf
+        - asset: assets/fonts/baguede.otf
+    - family: GoogleSans
+      fonts:
+        - asset: assets/fonts/google-sans.ttf
+    - family: Gilroy
+      fonts:
+        - asset: assets/fonts/Gilroy-Regular.ttf
 icons_launcher:
   image_path: "assets/icons/logo.png"
   platforms:
