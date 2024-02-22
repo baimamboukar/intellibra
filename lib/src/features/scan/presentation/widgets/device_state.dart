@@ -27,7 +27,7 @@ class DeviceStateSection extends StatelessWidget {
           //  const Spacer(),
 
           Text(
-            'Scanning...',
+            'Disconnected...',
             style: context.bodySm.copyWith(
               color: context.scheme.primary,
             ),

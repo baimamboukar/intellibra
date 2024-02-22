@@ -4,8 +4,11 @@ import 'package:bottom_sheet/bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:glass_kit/glass_kit.dart';
 import 'package:heroicons/heroicons.dart';
+import 'package:intellibra/src/app/assets.dart';
 import 'package:intellibra/src/common/common.dart';
 import 'package:intellibra/src/extensions/build_context.dart';
+import 'package:intellibra/src/extensions/num.dart';
+import 'package:intellibra/src/extensions/widgetx.dart';
 
 class DeviceSwitch extends StatelessWidget {
   const DeviceSwitch({super.key});
@@ -67,38 +70,53 @@ class DeviceSwitch extends StatelessWidget {
       ),
       action: (controller) async {
         controller.loading();
-        await Future<void>.delayed(const Duration(seconds: 3));
+        await Future<void>.delayed(const Duration(seconds: 1));
         if (context.mounted) {
-          await showStickyFlexibleBottomSheet<void>(
+          await showFlexibleBottomSheet<void>(
             minHeight: 0,
             initHeight: 0.5,
             maxHeight: 1,
-            headerHeight: 200,
+            bottomSheetColor: context.colorScheme.onPrimary,
             bottomSheetBorderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(24),
-              topRight: Radius.circular(24),
+              topLeft: Radius.circular(38),
+              topRight: Radius.circular(38),
             ),
             context: context,
-            headerBuilder: (BuildContext context, double offset) {
-              return Container();
-            },
-            bodyBuilder: (BuildContext context, double offset) {
-              return SliverChildListDelegate(
-                <Widget>[
-                  const Text('Hello'),
-                  IntellibraButton(
-                    text: 'Connect',
-                    action: () {
-                      context.router.pop();
-                      controller
-                        ..success()
-                        ..reset();
-                    },
+            builder: (BuildContext context, scroller, double offset) {
+              return Column(
+                children: <Widget>[
+                  Text(
+                    'INTELLIBRA CE12XFMZ',
+                    style: context.bodyLg.copyWith(
+                      color: context.scheme.primary,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  18.vGap,
+                  Image.asset(
+                    Assets.assetsIconsIntellibra,
+                    height: 180,
+                    width: 180,
+                  ),
+                  18.vGap,
+                  Center(
+                    child: IntellibraButton(
+                      text: 'Connect',
+                      width: .55,
+                      color: context.scheme.primary,
+                      //icon: Icons.local_activity,
+                      action: () {
+                        context.router.pop();
+                        controller
+                          ..success()
+                          ..reset();
+                      },
+                    ),
                   ),
                 ],
-              );
+              ).hPadding.vPadding;
             },
-            anchors: [0, 0.5, 1],
+            anchors: [0, 0.5, .75, 1],
           );
         }
       },

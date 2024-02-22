@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:heroicons/heroicons.dart';
 import 'package:iconly/iconly.dart';
 import 'package:intellibra/src/extensions/build_context.dart';
 import 'package:intellibra/src/router/intellibra_router.gr.dart' as routes;
@@ -18,6 +19,12 @@ class Home extends StatelessWidget {
           routes.IntelliRecords(),
           routes.Settings(),
         ],
+        floatingActionButtonBuilder: (context, router) {
+          return FloatingActionButton(
+            onPressed: () {},
+            child: const HeroIcon(HeroIcons.sparkles),
+          );
+        },
         builder: (context, child, animation) => ScaleTransition(
           scale: animation,
           child: child,

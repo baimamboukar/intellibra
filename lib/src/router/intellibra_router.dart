@@ -4,6 +4,7 @@ import 'package:intellibra/src/features/awareness/screens/awareness.dart';
 import 'package:intellibra/src/features/onboarding/onboarding.dart';
 import 'package:intellibra/src/features/records/medical_records.dart';
 import 'package:intellibra/src/features/scan/home.dart';
+import 'package:intellibra/src/features/scan/screening.dart';
 import 'package:intellibra/src/features/scan/self_exam.dart';
 import 'package:intellibra/src/features/settings/settings.dart';
 
@@ -27,6 +28,10 @@ import 'package:intellibra/src/features/settings/settings.dart';
     AutoRoute(
       page: ChooseTheme,
       path: '/choose-theme',
+    ),
+    AutoRoute(
+      page: ScreeningPage,
+      path: '/screening',
     ),
     AutoRoute(
       page: Home,
