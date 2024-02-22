@@ -21,7 +21,7 @@ class Home extends StatelessWidget {
           routes.Settings(),
         ],
         floatingActionButtonBuilder: (context, router) {
-          if (router.activeIndex == 0) {
+          if (router.activeIndex == 0 && router.activeIndex != 0) {
             return FloatingActionButton(
               onPressed: () {},
               child: const HeroIcon(HeroIcons.sparkles),

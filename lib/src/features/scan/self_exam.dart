@@ -19,18 +19,13 @@ class SelfCheck extends StatelessWidget {
         child: Column(
           children: [
             18.vGap,
-
             const WelcomeTile(),
-
-            14.vGap,
-
-            //const DeviceSwitch(),
-            //24.vGap,
-            // const ScanHistory(),
-            14.vGap,
-            const DeviceBox().hPadding,
             14.vGap,
             const ActionsList(),
+            14.vGap,
+            const DeviceBox().hPadding,
+            // 14.vGap,
+            // const ActionsList(),
             28.vGap,
             const RecentChekups().hPadding,
           ],
