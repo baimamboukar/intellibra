@@ -8,15 +8,15 @@ environment:
 
 dependencies:
   action_slider: ^0.7.0
-  auto_route: ^5.0.4
-  bloc: ^8.1.1
   bottom_sheet: ^4.0.0
   bottom_sheet_bar: ^2.3.9
-  cloud_firestore: ^4.4.3
+  auto_route: ^7.8.4
+  bloc: ^8.1.1
   collection: ^1.17.0
   dartz: ^0.10.1
-  firebase_auth: ^4.2.9
-  firebase_core: ^2.7.0
+  firebase_core: ^2.25.4
+  firebase_auth: ^4.17.4
+  cloud_firestore: ^4.15.5
   flex_seed_scheme: ^1.4.0
   flutter:
     sdk: flutter
@@ -30,7 +30,7 @@ dependencies:
   flutter_native_splash: ^2.2.18
   get_it: ^7.2.0
   glass_kit: ^3.0.0
-  google_fonts: ^5.1.0
+  google_fonts: ^6.1.0
   heroicons: ^0.9.0
   hydrated_bloc: ^9.1.0
   iconly: ^1.0.1
@@ -39,21 +39,21 @@ dependencies:
   modal_bottom_sheet: ^2.1.2
   palette_generator: ^0.3.3+2
   path_provider: ^2.0.13
-  permission_handler: ^10.4.3
-  pinput: ^2.2.31
+  permission_handler: ^11.3.0
+  pinput: ^4.0.0
   shadow_overlay: ^1.0.5
   swipe_refresh: ^1.0.2
   syncfusion_flutter_gauges: ^24.2.7
   url_launcher: ^6.1.10
 
 dev_dependencies:
-  auto_route_generator: ^5.0.3
+  auto_route_generator: ^7.3.2
   bloc_test: ^9.1.1
   build_runner: ^2.3.3
   fast_i18n: ^5.12.6
   flutter_test:
     sdk: flutter
-  mocktail: ^0.3.0
+  mocktail: ^1.0.3
   very_good_analysis: ^5.0.0+1
 
 flutter:

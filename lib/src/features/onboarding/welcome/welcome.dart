@@ -7,6 +7,7 @@ import 'package:intellibra/src/features/onboarding/thememode/cubit/theme_cubit.d
 
 ///TODO: #32 Redesign welcome page to give a new feel
 ///TODO: #33 add onboarding slider on welcome page
+@RoutePage()    
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
 

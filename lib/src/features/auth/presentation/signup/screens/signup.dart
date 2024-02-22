@@ -9,6 +9,7 @@ import 'package:intellibra/src/extensions/build_context.dart';
 import 'package:intellibra/src/extensions/num.dart';
 import 'package:pinput/pinput.dart';
 
+@RoutePage()    
 class CreateAccount extends StatefulWidget {
   const CreateAccount({super.key});
 

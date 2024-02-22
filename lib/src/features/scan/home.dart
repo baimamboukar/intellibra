@@ -6,6 +6,7 @@ import 'package:intellibra/src/extensions/build_context.dart';
 import 'package:intellibra/src/router/intellibra_router.gr.dart' as routes;
 
 //TODO: #34 redesign navigation bar to give a new feel
+@RoutePage()
 class Home extends StatelessWidget {
   const Home({super.key});
 
@@ -25,7 +26,7 @@ class Home extends StatelessWidget {
             child: const HeroIcon(HeroIcons.sparkles),
           );
         },
-        builder: (context, child, animation) => ScaleTransition(
+        transitionBuilder: (context, child, animation) => ScaleTransition(
           scale: animation,
           child: child,
         ),
