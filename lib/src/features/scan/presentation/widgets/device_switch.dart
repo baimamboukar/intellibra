@@ -89,43 +89,76 @@ class DeviceSwitch extends StatelessWidget {
             ),
             context: context,
             builder: (BuildContext context, scroller, double offset) {
-              return Column(
-                children: <Widget>[
-                  Text(
-                    'INTELLIBRA CE12XFMZ',
-                    style: context.bodyLg.copyWith(
-                      color: context.scheme.primary,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  18.vGap,
-                  Image.asset(
-                    Assets.assetsIconsIntellibra,
-                    height: 180,
-                    width: 180,
-                  ),
-                  18.vGap,
-                  Center(
-                    child: IntellibraButton(
-                      text: 'Connect',
-                      width: .55,
-                      color: context.scheme.primary,
-                      //icon: Icons.local_activity,
-                      action: () {
-                        context.router.pop();
-                        controller
-                          ..success()
-                          ..reset();
-                      },
-                    ),
-                  ),
-                ],
-              ).hPadding.vPadding;
+              return DevicePairing(controller: controller);
             },
             anchors: [0, 0.5, .75, 1],
           );
         }
       },
     );
+  }
+}
+
+class DevicePairing extends StatefulWidget {
+  const DevicePairing({
+    required this.controller,
+    super.key,
+  });
+  final ActionSliderController controller;
+
+  @override
+  State<DevicePairing> createState() => _DevicePairingState();
+}
+
+class _DevicePairingState extends State<DevicePairing> {
+  double angle = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Text(
+          'INTELLIBRA CE12XFMZ',
+          style: context.bodyLg.copyWith(
+            color: context.scheme.primary,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        18.vGap,
+        Transform(
+          transform: Matrix4.identity()
+            ..setEntry(3, 2, 0.004)
+            ..rotateY(angle),
+          alignment: Alignment.center,
+          child: GestureDetector(
+            onPanUpdate: (details) {
+              setState(() {
+                angle += details.delta.dx * 0.01;
+              });
+            },
+            child: Image.asset(
+              Assets.assetsIconsIntellibra,
+              height: 180,
+              width: 180,
+            ),
+          ),
+        ),
+        18.vGap,
+        Center(
+          child: IntellibraButton(
+            text: 'Connect',
+            width: .55,
+            color: context.scheme.primary,
+            //icon: Icons.local_activity,
+            action: () {
+              context.router.pop();
+              widget.controller
+                ..success()
+                ..reset();
+            },
+          ),
+        ),
+      ],
+    ).hPadding.vPadding;
   }
 }
