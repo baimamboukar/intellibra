@@ -45,12 +45,14 @@ dependencies:
   swipe_refresh: ^1.0.2
   syncfusion_flutter_gauges: ^24.2.7
   url_launcher: ^6.1.10
+  #flutter_gen: ^5.4.0
 
 dev_dependencies:
   auto_route_generator: ^7.3.2
   bloc_test: ^9.1.1
   build_runner: ^2.3.3
   fast_i18n: ^5.12.6
+  #flutter_gen_runner: ^5.4.0
   flutter_test:
     sdk: flutter
   mocktail: ^1.0.3
