@@ -38,6 +38,10 @@ class IntellibraRouter extends $IntellibraRouter {
           page: EditProfile.page,
           path: '/billing-settings',
         ),
+        // AutoRoute(
+        //   page: ScreeningPage.page,
+        //   path: '/intellibra-screening',
+        // ),
         AutoRoute(
           page: Home.page,
           path: '/home',
