@@ -12,6 +12,10 @@ class ScreeningPage extends StatefulWidget {
 class _ScreeningPageState extends State<ScreeningPage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return const Scaffold(
+      body: Center(
+        child: Text('Screening Page'),
+      ),
+    );
   }
 }
