@@ -11,6 +11,7 @@ const factory  AwarenessTopic({required String id, required String name, require
  factory AwarenessTopic.fromJson(Map<String, dynamic> json) => _$AwarenessTopicFromJson(json);
 }
 
+@freezed
 class Article with _$Article{
 const factory  Article({
     required String id,
