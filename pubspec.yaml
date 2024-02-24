@@ -36,6 +36,8 @@ dependencies:
   pinput: ^4.0.0
   shadow_overlay: ^1.0.5
   url_launcher: ^6.1.10
+  json_annotation: ^4.8.1
+  freezed_annotation: ^2.4.1
 
 dev_dependencies:
   auto_route_generator: ^7.3.2
@@ -44,6 +46,8 @@ dev_dependencies:
   fast_i18n: ^5.12.6
   flutter_test:
     sdk: flutter
+  freezed: ^2.4.7
+  json_serializable: ^6.7.1
   mocktail: ^1.0.3
   very_good_analysis: ^5.0.0+1
 
