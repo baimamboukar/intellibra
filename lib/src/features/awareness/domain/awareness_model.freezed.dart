@@ -197,6 +197,8 @@ mixin _$Article {
   String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
+  String? get imageUrl => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
   List<AwarenessTopic> get topics => throw _privateConstructorUsedError;
   String get authorId => throw _privateConstructorUsedError;
   String get authorName => throw _privateConstructorUsedError;
@@ -217,6 +219,8 @@ abstract class $ArticleCopyWith<$Res> {
       {String id,
       String title,
       String content,
+      String? imageUrl,
+      String description,
       List<AwarenessTopic> topics,
       String authorId,
       String authorName,
@@ -240,6 +244,8 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
     Object? id = null,
     Object? title = null,
     Object? content = null,
+    Object? imageUrl = freezed,
+    Object? description = null,
     Object? topics = null,
     Object? authorId = null,
     Object? authorName = null,
@@ -258,6 +264,14 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
       content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageUrl: freezed == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
       topics: null == topics
           ? _value.topics
@@ -294,6 +308,8 @@ abstract class _$$ArticleImplCopyWith<$Res> implements $ArticleCopyWith<$Res> {
       {String id,
       String title,
       String content,
+      String? imageUrl,
+      String description,
       List<AwarenessTopic> topics,
       String authorId,
       String authorName,
@@ -315,6 +331,8 @@ class __$$ArticleImplCopyWithImpl<$Res>
     Object? id = null,
     Object? title = null,
     Object? content = null,
+    Object? imageUrl = freezed,
+    Object? description = null,
     Object? topics = null,
     Object? authorId = null,
     Object? authorName = null,
@@ -333,6 +351,14 @@ class __$$ArticleImplCopyWithImpl<$Res>
       content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageUrl: freezed == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
       topics: null == topics
           ? _value._topics
@@ -365,6 +391,8 @@ class _$ArticleImpl implements _Article {
       {required this.id,
       required this.title,
       required this.content,
+      required this.imageUrl,
+      required this.description,
       required final List<AwarenessTopic> topics,
       required this.authorId,
       required this.authorName,
@@ -381,6 +409,10 @@ class _$ArticleImpl implements _Article {
   final String title;
   @override
   final String content;
+  @override
+  final String? imageUrl;
+  @override
+  final String description;
   final List<AwarenessTopic> _topics;
   @override
   List<AwarenessTopic> get topics {
@@ -400,7 +432,7 @@ class _$ArticleImpl implements _Article {
 
   @override
   String toString() {
-    return 'Article(id: $id, title: $title, content: $content, topics: $topics, authorId: $authorId, authorName: $authorName, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Article(id: $id, title: $title, content: $content, imageUrl: $imageUrl, description: $description, topics: $topics, authorId: $authorId, authorName: $authorName, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -411,6 +443,10 @@ class _$ArticleImpl implements _Article {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.content, content) || other.content == content) &&
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             const DeepCollectionEquality().equals(other._topics, _topics) &&
             (identical(other.authorId, authorId) ||
                 other.authorId == authorId) &&
@@ -429,6 +465,8 @@ class _$ArticleImpl implements _Article {
       id,
       title,
       content,
+      imageUrl,
+      description,
       const DeepCollectionEquality().hash(_topics),
       authorId,
       authorName,
@@ -454,6 +492,8 @@ abstract class _Article implements Article {
       {required final String id,
       required final String title,
       required final String content,
+      required final String? imageUrl,
+      required final String description,
       required final List<AwarenessTopic> topics,
       required final String authorId,
       required final String authorName,
@@ -468,6 +508,10 @@ abstract class _Article implements Article {
   String get title;
   @override
   String get content;
+  @override
+  String? get imageUrl;
+  @override
+  String get description;
   @override
   List<AwarenessTopic> get topics;
   @override

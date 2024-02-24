@@ -26,6 +26,8 @@ _$ArticleImpl _$$ArticleImplFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String,
       title: json['title'] as String,
       content: json['content'] as String,
+      imageUrl: json['imageUrl'] as String?,
+      description: json['description'] as String,
       topics: (json['topics'] as List<dynamic>)
           .map((e) => AwarenessTopic.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -40,6 +42,8 @@ Map<String, dynamic> _$$ArticleImplToJson(_$ArticleImpl instance) =>
       'id': instance.id,
       'title': instance.title,
       'content': instance.content,
+      'imageUrl': instance.imageUrl,
+      'description': instance.description,
       'topics': instance.topics,
       'authorId': instance.authorId,
       'authorName': instance.authorName,

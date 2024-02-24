@@ -11,7 +11,7 @@
 import 'package:auto_route/auto_route.dart' as _i14;
 import 'package:intellibra/src/features/auth/presentation/signup/screens/signup.dart'
     as _i7;
-import 'package:intellibra/src/features/awareness/screens/awareness.dart'
+import 'package:intellibra/src/features/awareness/presentation/screens/awareness.dart'
     as _i3;
 import 'package:intellibra/src/features/onboarding/language/choose_language.dart'
     as _i5;

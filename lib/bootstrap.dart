@@ -36,7 +36,6 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: kIsWeb ?HydratedStorage.webStorageDirectory: await getTemporaryDirectory(),
   );
-
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
