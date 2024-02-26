@@ -27,6 +27,7 @@ class _IntellibraState extends State<Intellibra> {
       child: BlocBuilder<ThemeCubit, bool>(
         builder: (BuildContext context, bool state) {
           return MaterialApp.router(
+            debugShowCheckedModeBanner: false,
             themeMode: state == false ? ThemeMode.light : ThemeMode.dark,
             theme: IntellibraTheme.light,
             darkTheme: IntellibraTheme.dark,

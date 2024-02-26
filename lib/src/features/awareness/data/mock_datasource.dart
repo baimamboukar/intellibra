@@ -10,12 +10,12 @@ Future<List<Article>> mockArticles = Future.delayed(
       content: 'Content $index',
       imageUrl: 'https://via.placeholder.com/150',
       description: 'Description $index',
-      topics: [
+      /* topics: [
         AwarenessTopic(
             id: 'topicId$index',
             name: 'Topic Name $index',
             description: 'Topic Description $index'),
-      ],
+      ], */
       authorId: 'authorId$index',
       authorName: 'Author Name $index',
       createdAt: DateTime.now(),

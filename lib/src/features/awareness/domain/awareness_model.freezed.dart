@@ -194,14 +194,14 @@ Article _$ArticleFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Article {
-  String get id => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-  String get content => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+  String? get content => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-  List<AwarenessTopic> get topics => throw _privateConstructorUsedError;
-  String get authorId => throw _privateConstructorUsedError;
-  String get authorName => throw _privateConstructorUsedError;
+  String? get description =>
+      throw _privateConstructorUsedError; // required List<AwarenessTopic>? topics,
+  String? get authorId => throw _privateConstructorUsedError;
+  String? get authorName => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
 
@@ -216,14 +216,13 @@ abstract class $ArticleCopyWith<$Res> {
       _$ArticleCopyWithImpl<$Res, Article>;
   @useResult
   $Res call(
-      {String id,
-      String title,
-      String content,
+      {String? id,
+      String? title,
+      String? content,
       String? imageUrl,
-      String description,
-      List<AwarenessTopic> topics,
-      String authorId,
-      String authorName,
+      String? description,
+      String? authorId,
+      String? authorName,
       DateTime createdAt,
       DateTime updatedAt});
 }
@@ -241,50 +240,45 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? title = null,
-    Object? content = null,
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? content = freezed,
     Object? imageUrl = freezed,
-    Object? description = null,
-    Object? topics = null,
-    Object? authorId = null,
-    Object? authorName = null,
+    Object? description = freezed,
+    Object? authorId = freezed,
+    Object? authorName = freezed,
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
+              as String?,
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      content: null == content
+              as String?,
+      content: freezed == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       imageUrl: freezed == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      description: null == description
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      topics: null == topics
-          ? _value.topics
-          : topics // ignore: cast_nullable_to_non_nullable
-              as List<AwarenessTopic>,
-      authorId: null == authorId
+              as String?,
+      authorId: freezed == authorId
           ? _value.authorId
           : authorId // ignore: cast_nullable_to_non_nullable
-              as String,
-      authorName: null == authorName
+              as String?,
+      authorName: freezed == authorName
           ? _value.authorName
           : authorName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -305,14 +299,13 @@ abstract class _$$ArticleImplCopyWith<$Res> implements $ArticleCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
-      String title,
-      String content,
+      {String? id,
+      String? title,
+      String? content,
       String? imageUrl,
-      String description,
-      List<AwarenessTopic> topics,
-      String authorId,
-      String authorName,
+      String? description,
+      String? authorId,
+      String? authorName,
       DateTime createdAt,
       DateTime updatedAt});
 }
@@ -328,50 +321,45 @@ class __$$ArticleImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? title = null,
-    Object? content = null,
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? content = freezed,
     Object? imageUrl = freezed,
-    Object? description = null,
-    Object? topics = null,
-    Object? authorId = null,
-    Object? authorName = null,
+    Object? description = freezed,
+    Object? authorId = freezed,
+    Object? authorName = freezed,
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
     return _then(_$ArticleImpl(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
+              as String?,
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      content: null == content
+              as String?,
+      content: freezed == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       imageUrl: freezed == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      description: null == description
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      topics: null == topics
-          ? _value._topics
-          : topics // ignore: cast_nullable_to_non_nullable
-              as List<AwarenessTopic>,
-      authorId: null == authorId
+              as String?,
+      authorId: freezed == authorId
           ? _value.authorId
           : authorId // ignore: cast_nullable_to_non_nullable
-              as String,
-      authorName: null == authorName
+              as String?,
+      authorName: freezed == authorName
           ? _value.authorName
           : authorName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -393,38 +381,29 @@ class _$ArticleImpl implements _Article {
       required this.content,
       required this.imageUrl,
       required this.description,
-      required final List<AwarenessTopic> topics,
       required this.authorId,
       required this.authorName,
       required this.createdAt,
-      required this.updatedAt})
-      : _topics = topics;
+      required this.updatedAt});
 
   factory _$ArticleImpl.fromJson(Map<String, dynamic> json) =>
       _$$ArticleImplFromJson(json);
 
   @override
-  final String id;
+  final String? id;
   @override
-  final String title;
+  final String? title;
   @override
-  final String content;
+  final String? content;
   @override
   final String? imageUrl;
   @override
-  final String description;
-  final List<AwarenessTopic> _topics;
+  final String? description;
+// required List<AwarenessTopic>? topics,
   @override
-  List<AwarenessTopic> get topics {
-    if (_topics is EqualUnmodifiableListView) return _topics;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_topics);
-  }
-
+  final String? authorId;
   @override
-  final String authorId;
-  @override
-  final String authorName;
+  final String? authorName;
   @override
   final DateTime createdAt;
   @override
@@ -432,7 +411,7 @@ class _$ArticleImpl implements _Article {
 
   @override
   String toString() {
-    return 'Article(id: $id, title: $title, content: $content, imageUrl: $imageUrl, description: $description, topics: $topics, authorId: $authorId, authorName: $authorName, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Article(id: $id, title: $title, content: $content, imageUrl: $imageUrl, description: $description, authorId: $authorId, authorName: $authorName, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -447,7 +426,6 @@ class _$ArticleImpl implements _Article {
                 other.imageUrl == imageUrl) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            const DeepCollectionEquality().equals(other._topics, _topics) &&
             (identical(other.authorId, authorId) ||
                 other.authorId == authorId) &&
             (identical(other.authorName, authorName) ||
@@ -460,18 +438,8 @@ class _$ArticleImpl implements _Article {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      title,
-      content,
-      imageUrl,
-      description,
-      const DeepCollectionEquality().hash(_topics),
-      authorId,
-      authorName,
-      createdAt,
-      updatedAt);
+  int get hashCode => Object.hash(runtimeType, id, title, content, imageUrl,
+      description, authorId, authorName, createdAt, updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -489,35 +457,32 @@ class _$ArticleImpl implements _Article {
 
 abstract class _Article implements Article {
   const factory _Article(
-      {required final String id,
-      required final String title,
-      required final String content,
+      {required final String? id,
+      required final String? title,
+      required final String? content,
       required final String? imageUrl,
-      required final String description,
-      required final List<AwarenessTopic> topics,
-      required final String authorId,
-      required final String authorName,
+      required final String? description,
+      required final String? authorId,
+      required final String? authorName,
       required final DateTime createdAt,
       required final DateTime updatedAt}) = _$ArticleImpl;
 
   factory _Article.fromJson(Map<String, dynamic> json) = _$ArticleImpl.fromJson;
 
   @override
-  String get id;
+  String? get id;
   @override
-  String get title;
+  String? get title;
   @override
-  String get content;
+  String? get content;
   @override
   String? get imageUrl;
   @override
-  String get description;
+  String? get description;
+  @override // required List<AwarenessTopic>? topics,
+  String? get authorId;
   @override
-  List<AwarenessTopic> get topics;
-  @override
-  String get authorId;
-  @override
-  String get authorName;
+  String? get authorName;
   @override
   DateTime get createdAt;
   @override

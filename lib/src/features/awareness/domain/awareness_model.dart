@@ -14,17 +14,19 @@ class AwarenessTopic with _$AwarenessTopic {
       _$AwarenessTopicFromJson(json);
 }
 
-@freezed
+@Freezed(
+  //fromJson: false,
+)
 class Article with _$Article {
   const factory Article({
-    required String id,
-    required String title,
-    required String content,
+    required String? id,
+    required String? title,
+    required String? content,
     required String? imageUrl,
-    required String description,
-    required List<AwarenessTopic> topics,
-    required String authorId,
-    required String authorName,
+    required String? description,
+   // required List<AwarenessTopic>? topics,
+    required String? authorId,
+    required String? authorName,
     required DateTime createdAt,
     required DateTime updatedAt,
   }) = _Article;
@@ -36,5 +38,3 @@ class Article with _$Article {
     return Article.fromJson(data).copyWith(id: doc.id);
   }
 }
-
-

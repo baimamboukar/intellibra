@@ -12,5 +12,8 @@ class Assets {
   /// Assets for assetsIconsWomanPp
   /// assets/icons/woman_pp.png
   static const String assetsIconsWomanPp = 'assets/icons/woman_pp.png';
+
+  static const String articlePlaceholder = 'images/article_placeholder.png';
+  static const String articleNoBgPlaceholder = 'images/article_nobg_placeholder.png';
   
 }
