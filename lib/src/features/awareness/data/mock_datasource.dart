@@ -1,10 +1,10 @@
 import 'package:intellibra/src/features/awareness/domain/awareness_model.dart';
 
-Future<List<Article>> mockArticles = Future.delayed(
+Future<List<ArticleModel>> mockArticles = Future.delayed(
   const Duration(seconds: 2),
-  () => List<Article>.generate(
+  () => List<ArticleModel>.generate(
     10,
-    (index) => Article(
+    (index) => ArticleModel(
       id: 'id$index',
       title: 'Title $index',
       content: 'Content $index',

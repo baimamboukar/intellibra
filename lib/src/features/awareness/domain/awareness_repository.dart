@@ -9,7 +9,7 @@ class AwarenessRepository {
   final FirebaseService _firebaseService = FirebaseService();
   final HiveService _hiveService = HiveService();
 
-  Future<void> addArticle(Article article) async {
+  Future<void> addArticle(ArticleModel article) async {
     // Check internet connectivity
     final isConnected = await checkInternetConnectivity();
 
@@ -21,9 +21,9 @@ class AwarenessRepository {
     }
   }
 
-  Future<List<Article>> getAllArticlesPagination(int limit) async {
+  Future<List<ArticleModel>> getAllArticlesPagination(int limit) async {
     // Check internet connectivity
-    if(Constants.isMockData){
+    if (Constants.isMockData) {
       return mockArticles;
     }
     final isConnected = await checkInternetConnectivity();

@@ -6,8 +6,8 @@ class HiveService {
   static const String _articlesBoxName = 'articles';
 
   // Open the Hive box for articles
-  Future<Box<Article>> _openArticlesBox() async {
-    return Hive.openBox<Article>(_articlesBoxName);
+  Future<Box<ArticleModel>> _openArticlesBox() async {
+    return Hive.openBox<ArticleModel>(_articlesBoxName);
   }
 
   // ignore: strict_raw_type
@@ -15,19 +15,19 @@ class HiveService {
     await box.close();
   }
 
-  Future<void> addArticleLocally(Article article) async {
+  Future<void> addArticleLocally(ArticleModel article) async {
     final box = await _openArticlesBox();
     await box.add(article);
     await _closeBox(box);
   }
 
-  Future<void> addAllArticleLocally(List<Article> articles) async {
+  Future<void> addAllArticleLocally(List<ArticleModel> articles) async {
     final box = await _openArticlesBox();
     await box.addAll(articles);
     await _closeBox(box);
   }
 
-  Future<List<Article>> getAllArticlesLocally() async {
+  Future<List<ArticleModel>> getAllArticlesLocally() async {
     final box = await _openArticlesBox();
     final result = box.values.toList();
     await _closeBox(box);
@@ -37,7 +37,7 @@ class HiveService {
   // Other Hive methods...
 
   // Example Hive method to update local article
-  Future<void> updateArticleLocally(Article updatedArticle) async {
+  Future<void> updateArticleLocally(ArticleModel updatedArticle) async {
     final box = await _openArticlesBox();
     final index = box.values
         .toList()
@@ -48,5 +48,4 @@ class HiveService {
     }
     await _closeBox(box);
   }
-
 }

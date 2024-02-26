@@ -23,17 +23,15 @@ Map<String, dynamic> _$$AwarenessTopicImplToJson(
 
 _$ArticleImpl _$$ArticleImplFromJson(Map<String, dynamic> json) =>
     _$ArticleImpl(
-      id: json['id'] as String?,
-      title: json['title'] as String?,
-      content: json['content'] as String?,
+      id: json['id'] as String,
+      title: json['title'] as String,
+      content: json['content'] as String,
       imageUrl: json['imageUrl'] as String?,
       description: json['description'] as String?,
       authorId: json['authorId'] as String?,
-      authorName: json['authorName'] as String?,
-      createdAt: DateTime.fromMillisecondsSinceEpoch(
-          (json['createdAt'] as Timestamp).millisecondsSinceEpoch),
-      updatedAt: DateTime.fromMillisecondsSinceEpoch(
-          (json['updatedAt'] as Timestamp).millisecondsSinceEpoch),
+      authorName: json['authorName'] as String,
+      createdAt: DateTime.parse(json['createdAt'] as String),
+      updatedAt: DateTime.parse(json['updatedAt'] as String),
     );
 
 Map<String, dynamic> _$$ArticleImplToJson(_$ArticleImpl instance) =>

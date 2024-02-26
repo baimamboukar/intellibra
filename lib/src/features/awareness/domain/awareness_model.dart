@@ -15,26 +15,36 @@ class AwarenessTopic with _$AwarenessTopic {
 }
 
 @Freezed(
-  //fromJson: false,
-)
-class Article with _$Article {
-  const factory Article({
-    required String? id,
-    required String? title,
-    required String? content,
+    //fromJson: false,
+    )
+class ArticleModel with _$ArticleModel {
+  const factory ArticleModel({
+    required String id,
+    required String title,
+    required String content,
     required String? imageUrl,
     required String? description,
-   // required List<AwarenessTopic>? topics,
+    // required List<AwarenessTopic>? topics,
     required String? authorId,
-    required String? authorName,
+    required String authorName,
     required DateTime createdAt,
     required DateTime updatedAt,
   }) = _Article;
 
-  factory Article.fromJson(Map<String, dynamic> json) =>
-      _$ArticleFromJson(json);
-  factory Article.fromFirestore(DocumentSnapshot doc) {
+  factory ArticleModel.fromJson(Map<String, dynamic> json) =>
+      _$ArticleModelFromJson(json);
+  factory ArticleModel.fromFirestore(DocumentSnapshot doc) {
     final data = doc.data()! as Map<String, dynamic>;
-    return Article.fromJson(data).copyWith(id: doc.id);
+    return ArticleModel(
+      id: doc.id,
+      title: data['title'] as String,
+      content: data['content'] as String,
+      imageUrl: data['imageUrl'] as String,
+      description: data['description'] as String,
+      authorId: data['authorId'] as String?,
+      authorName: data['authorName'] as String,
+      createdAt: (data['createdAt'] as Timestamp).toDate(),
+      updatedAt: (data['updatedAt'] as Timestamp).toDate(),
+    );
   }
 }

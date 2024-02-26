@@ -188,49 +188,51 @@ abstract class _AwarenessTopic implements AwarenessTopic {
       throw _privateConstructorUsedError;
 }
 
-Article _$ArticleFromJson(Map<String, dynamic> json) {
+ArticleModel _$ArticleModelFromJson(Map<String, dynamic> json) {
   return _Article.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Article {
-  String? get id => throw _privateConstructorUsedError;
-  String? get title => throw _privateConstructorUsedError;
-  String? get content => throw _privateConstructorUsedError;
+mixin _$ArticleModel {
+  String get id => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  String get content => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
   String? get description =>
       throw _privateConstructorUsedError; // required List<AwarenessTopic>? topics,
   String? get authorId => throw _privateConstructorUsedError;
-  String? get authorName => throw _privateConstructorUsedError;
+  String get authorName => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ArticleCopyWith<Article> get copyWith => throw _privateConstructorUsedError;
+  $ArticleModelCopyWith<ArticleModel> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ArticleCopyWith<$Res> {
-  factory $ArticleCopyWith(Article value, $Res Function(Article) then) =
-      _$ArticleCopyWithImpl<$Res, Article>;
+abstract class $ArticleModelCopyWith<$Res> {
+  factory $ArticleModelCopyWith(
+          ArticleModel value, $Res Function(ArticleModel) then) =
+      _$ArticleModelCopyWithImpl<$Res, ArticleModel>;
   @useResult
   $Res call(
-      {String? id,
-      String? title,
-      String? content,
+      {String id,
+      String title,
+      String content,
       String? imageUrl,
       String? description,
       String? authorId,
-      String? authorName,
+      String authorName,
       DateTime createdAt,
       DateTime updatedAt});
 }
 
 /// @nodoc
-class _$ArticleCopyWithImpl<$Res, $Val extends Article>
-    implements $ArticleCopyWith<$Res> {
-  _$ArticleCopyWithImpl(this._value, this._then);
+class _$ArticleModelCopyWithImpl<$Res, $Val extends ArticleModel>
+    implements $ArticleModelCopyWith<$Res> {
+  _$ArticleModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -240,29 +242,29 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? content = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? content = null,
     Object? imageUrl = freezed,
     Object? description = freezed,
     Object? authorId = freezed,
-    Object? authorName = freezed,
+    Object? authorName = null,
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      title: freezed == title
+              as String,
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      content: freezed == content
+              as String,
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       imageUrl: freezed == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
@@ -275,10 +277,10 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
           ? _value.authorId
           : authorId // ignore: cast_nullable_to_non_nullable
               as String?,
-      authorName: freezed == authorName
+      authorName: null == authorName
           ? _value.authorName
           : authorName // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -292,27 +294,28 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
 }
 
 /// @nodoc
-abstract class _$$ArticleImplCopyWith<$Res> implements $ArticleCopyWith<$Res> {
+abstract class _$$ArticleImplCopyWith<$Res>
+    implements $ArticleModelCopyWith<$Res> {
   factory _$$ArticleImplCopyWith(
           _$ArticleImpl value, $Res Function(_$ArticleImpl) then) =
       __$$ArticleImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {String? id,
-      String? title,
-      String? content,
+      {String id,
+      String title,
+      String content,
       String? imageUrl,
       String? description,
       String? authorId,
-      String? authorName,
+      String authorName,
       DateTime createdAt,
       DateTime updatedAt});
 }
 
 /// @nodoc
 class __$$ArticleImplCopyWithImpl<$Res>
-    extends _$ArticleCopyWithImpl<$Res, _$ArticleImpl>
+    extends _$ArticleModelCopyWithImpl<$Res, _$ArticleImpl>
     implements _$$ArticleImplCopyWith<$Res> {
   __$$ArticleImplCopyWithImpl(
       _$ArticleImpl _value, $Res Function(_$ArticleImpl) _then)
@@ -321,29 +324,29 @@ class __$$ArticleImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? content = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? content = null,
     Object? imageUrl = freezed,
     Object? description = freezed,
     Object? authorId = freezed,
-    Object? authorName = freezed,
+    Object? authorName = null,
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
     return _then(_$ArticleImpl(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      title: freezed == title
+              as String,
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      content: freezed == content
+              as String,
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       imageUrl: freezed == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
@@ -356,10 +359,10 @@ class __$$ArticleImplCopyWithImpl<$Res>
           ? _value.authorId
           : authorId // ignore: cast_nullable_to_non_nullable
               as String?,
-      authorName: freezed == authorName
+      authorName: null == authorName
           ? _value.authorName
           : authorName // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -390,11 +393,11 @@ class _$ArticleImpl implements _Article {
       _$$ArticleImplFromJson(json);
 
   @override
-  final String? id;
+  final String id;
   @override
-  final String? title;
+  final String title;
   @override
-  final String? content;
+  final String content;
   @override
   final String? imageUrl;
   @override
@@ -403,7 +406,7 @@ class _$ArticleImpl implements _Article {
   @override
   final String? authorId;
   @override
-  final String? authorName;
+  final String authorName;
   @override
   final DateTime createdAt;
   @override
@@ -411,7 +414,7 @@ class _$ArticleImpl implements _Article {
 
   @override
   String toString() {
-    return 'Article(id: $id, title: $title, content: $content, imageUrl: $imageUrl, description: $description, authorId: $authorId, authorName: $authorName, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'ArticleModel(id: $id, title: $title, content: $content, imageUrl: $imageUrl, description: $description, authorId: $authorId, authorName: $authorName, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -455,26 +458,26 @@ class _$ArticleImpl implements _Article {
   }
 }
 
-abstract class _Article implements Article {
+abstract class _Article implements ArticleModel {
   const factory _Article(
-      {required final String? id,
-      required final String? title,
-      required final String? content,
+      {required final String id,
+      required final String title,
+      required final String content,
       required final String? imageUrl,
       required final String? description,
       required final String? authorId,
-      required final String? authorName,
+      required final String authorName,
       required final DateTime createdAt,
       required final DateTime updatedAt}) = _$ArticleImpl;
 
   factory _Article.fromJson(Map<String, dynamic> json) = _$ArticleImpl.fromJson;
 
   @override
-  String? get id;
+  String get id;
   @override
-  String? get title;
+  String get title;
   @override
-  String? get content;
+  String get content;
   @override
   String? get imageUrl;
   @override
@@ -482,7 +485,7 @@ abstract class _Article implements Article {
   @override // required List<AwarenessTopic>? topics,
   String? get authorId;
   @override
-  String? get authorName;
+  String get authorName;
   @override
   DateTime get createdAt;
   @override

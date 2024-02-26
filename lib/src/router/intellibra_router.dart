@@ -23,7 +23,7 @@ class IntellibraRouter extends $IntellibraRouter {
           page: ChooseTheme.page,
           path: '/choose-theme',
         ),
-       
+       AutoRoute(page: Article.page, path: '/article/:id'),
         AutoRoute(
           page: AccountSettings.page,
           path: '/account-settings',
