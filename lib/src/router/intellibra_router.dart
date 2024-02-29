@@ -2,7 +2,9 @@ import 'package:auto_route/auto_route.dart';
 
 import 'package:intellibra/src/router/intellibra_router.gr.dart';
 
-@AutoRouterConfig()
+@AutoRouterConfig(
+  replaceInRouteName: 'Page|Screen|View,Route',
+)
 class IntellibraRouter extends $IntellibraRouter {
   @override
   List<AutoRoute> get routes => <AutoRoute>[
@@ -23,7 +25,7 @@ class IntellibraRouter extends $IntellibraRouter {
           page: ChooseTheme.page,
           path: '/choose-theme',
         ),
-       AutoRoute(page: Article.page, path: '/article/:id'),
+      // AutoRoute(page: Article.page, path: '/article/:id'),
         AutoRoute(
           page: AccountSettings.page,
           path: '/account-settings',
@@ -39,6 +41,11 @@ class IntellibraRouter extends $IntellibraRouter {
         AutoRoute(
           page: EditProfile.page,
           path: '/billing-settings',
+        ), 
+        
+        AutoRoute(
+          page: ArticleRoute.page,
+          path: '/article',
         ), 
         
         

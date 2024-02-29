@@ -21,18 +21,44 @@ class AwarenessRepository {
     }
   }
 
-  Future<List<ArticleModel>> getAllArticlesPagination(int limit) async {
+  Future<List<ArticleModel>> getAllArticlesPagination(int limit, int page) async {
     // Check internet connectivity
     if (Constants.isMockData) {
       return mockArticles;
     }
     final isConnected = await checkInternetConnectivity();
     if (isConnected) {
-      return _firebaseService.getAllArticlesPagination(limit);
+      return _firebaseService.getAllArticlesPagination(limit, page);
     } else {
       return _hiveService.getAllArticlesLocally();
       // Handle offline retrieval with Hive or other local storage method
       // return _hiveService.getAllArticles();
+    }
+  }
+
+  Future<bool> likeArticle(String userId, String articleId) async {
+    // Check internet connectivity
+    final isConnected = await checkInternetConnectivity();
+
+    if (isConnected) {
+      return _firebaseService.likeArticle(userId, articleId);
+    } else {
+      // Handle offline storage with Hive or other local storage method
+      // _hiveService.likeArticleLocally(article);
+      throw Exception('No internet connection');
+    }
+  }
+
+  Future<void> bookMarkArticle(String userId, String articleId) async {
+    // Check internet connectivity
+    final isConnected = await checkInternetConnectivity();
+
+    if (isConnected) {
+      return _firebaseService.bookMarkArticle(userId, articleId);
+    } else {
+      // Handle offline storage with Hive or other local storage method
+      // _hiveService.bookMarkArticleLocally(article);
+      throw Exception('No internet connection');
     }
   }
 }

@@ -50,11 +50,11 @@ abstract class $IntellibraRouter extends _i15.RootStackRouter {
         child: const _i2.AppSettings(),
       );
     },
-    Article.name: (routeData) {
-      final args = routeData.argsAs<ArticleArgs>();
+    ArticleRoute.name: (routeData) {
+      final args = routeData.argsAs<ArticleRouteArgs>();
       return _i15.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i3.Article(
+        child: _i3.ArticlePage(
           article: args.article,
           key: args.key,
         ),
@@ -158,29 +158,29 @@ class AppSettings extends _i15.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.Article]
-class Article extends _i15.PageRouteInfo<ArticleArgs> {
-  Article({
+/// [_i3.ArticlePage]
+class ArticleRoute extends _i15.PageRouteInfo<ArticleRouteArgs> {
+  ArticleRoute({
     required _i16.ArticleModel article,
     _i17.Key? key,
     List<_i15.PageRouteInfo>? children,
   }) : super(
-          Article.name,
-          args: ArticleArgs(
+          ArticleRoute.name,
+          args: ArticleRouteArgs(
             article: article,
             key: key,
           ),
           initialChildren: children,
         );
 
-  static const String name = 'Article';
+  static const String name = 'ArticleRoute';
 
-  static const _i15.PageInfo<ArticleArgs> page =
-      _i15.PageInfo<ArticleArgs>(name);
+  static const _i15.PageInfo<ArticleRouteArgs> page =
+      _i15.PageInfo<ArticleRouteArgs>(name);
 }
 
-class ArticleArgs {
-  const ArticleArgs({
+class ArticleRouteArgs {
+  const ArticleRouteArgs({
     required this.article,
     this.key,
   });
@@ -191,7 +191,7 @@ class ArticleArgs {
 
   @override
   String toString() {
-    return 'ArticleArgs{article: $article, key: $key}';
+    return 'ArticleRouteArgs{article: $article, key: $key}';
   }
 }
 

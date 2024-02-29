@@ -7,6 +7,7 @@ import 'package:intellibra/src/configs/configs.dart';
 import 'package:intellibra/src/extensions/build_context.dart';
 import 'package:intellibra/src/extensions/num.dart';
 import 'package:intellibra/src/features/awareness/presentation/cubit/awareness_cubit.dart';
+import 'package:intellibra/src/router/intellibra_router.gr.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 //TODO: #37 Implement Awareness feature
@@ -21,7 +22,7 @@ class Awareness extends StatefulWidget {
 class _AwarenessState extends State<Awareness> {
   @override
   void initState() {
-    context.read<AwarenessCubit>().getAllArticles();
+    context.read<AwarenessCubit>().getAllArticles(1);
     super.initState();
   }
 
@@ -47,7 +48,7 @@ class _AwarenessState extends State<Awareness> {
           builder: (context, state) {
             return RefreshIndicator.adaptive(
               onRefresh: () async {
-                await context.read<AwarenessCubit>().getAllArticles();
+                await context.read<AwarenessCubit>().getAllArticles(1);
               },
               child: state.when(
                 initial: () => Center(
@@ -71,16 +72,22 @@ class _AwarenessState extends State<Awareness> {
                           physics: const BouncingScrollPhysics(),
                           itemBuilder: (context, i) {
                             final article = articles[i];
-                            return ArticleCard(
-                              id: article.id ?? '',
-                              title: article.title!,
-                              createdAt: article.createdAt,
-                              description: article.description,
-                              authorName: article.authorName!,
-                              image: article.imageUrl,
+                            return GestureDetector(
+                              onTap: () {
+                                AutoRouter.of(context)
+                                    .push(ArticleRoute(article: article));
+                              },
+                              child: ArticleCard(
+                                id: article.id,
+                                title: article.title,
+                                createdAt: article.createdAt,
+                                description: article.description,
+                                authorName: article.authorName,
+                                image: article.imageUrl,
+                              ),
                             );
                           },
-                          separatorBuilder: (context, i) =>  32.vGap,
+                          separatorBuilder: (context, i) => 32.vGap,
                           itemCount: articles.length,
                         ),
                       ),
@@ -133,7 +140,7 @@ class ArticleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: description == null ? 167 : 232,
-      padding: const EdgeInsets.fromLTRB(16,22,16,12 ),
+      padding: const EdgeInsets.fromLTRB(16, 22, 16, 12),
       decoration: BoxDecoration(
         color: context.scheme.onPrimary,
         borderRadius: BorderRadius.circular(16),
@@ -186,11 +193,36 @@ class ArticleCard extends StatelessWidget {
                 ),
                 style: context.theme.textTheme.bodySmall!.copyWith(
                   color: Palette.secondaryTextColor.withOpacity(0.5),
-                )
+                ),
               ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.more_horiz_outlined),
+              PopupMenuButton<String>(
+                onSelected: (value) {
+                  if (value == 'bookmark') {
+                    // Handle bookmark option
+                  } else if (value == 'like') {
+                    // Handle like option
+                  } else if (value == 'share') {
+                    // Handle share option
+                  }
+                },
+                itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+                  const PopupMenuItem<String>(
+                    value: 'bookmark',
+                    child: Text('Bookmark'),
+                  ),
+                  const PopupMenuItem<String>(
+                    value: 'like',
+                    child: Text('Like'),
+                  ),
+                  const PopupMenuItem<String>(
+                    value: 'share',
+                    child: Text('Share'),
+                  ),
+                ],
+                child: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.more_horiz_outlined),
+                ),
               ),
             ],
           ),

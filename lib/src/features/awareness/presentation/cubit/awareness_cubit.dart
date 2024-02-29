@@ -10,10 +10,10 @@ class AwarenessCubit extends Cubit<AwarenessState> {
   AwarenessCubit(this._repository) : super(const AwarenessState.initial());
   final AwarenessRepository _repository;
 
-  Future<void> getAllArticles() async {
+  Future<void> getAllArticles(int page) async {
     emit(const AwarenessState.loading());
     try {
-      final articles = await _repository.getAllArticlesPagination(10);
+      final articles = await _repository.getAllArticlesPagination(10, page);
       emit(AwarenessState.loaded(articles));
     } catch (e) {
       emit(AwarenessState.error(e.toString()));
