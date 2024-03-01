@@ -6,6 +6,9 @@ class Constants {
   static const double borderRadius = 14;
   static const double buttonHeight = 52;
 
+  static const double iconSize = 24;
+  static const double iconSizeLarge = 48;
+
   static const bool isMockData = false;
 }
 

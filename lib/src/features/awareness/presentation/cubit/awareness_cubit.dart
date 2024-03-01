@@ -19,6 +19,46 @@ class AwarenessCubit extends Cubit<AwarenessState> {
       emit(AwarenessState.error(e.toString()));
     }
   }
+
+  Future<void> likeArticle(String userId, String articleId) async {
+    try {
+      final isLiked = await _repository.likeArticle(userId, articleId);
+      if (isLiked) {
+        emit(const AwarenessState.loading());
+        await getAllArticles(1);
+      }
+    } catch (e) {
+      emit(AwarenessState.error(e.toString()));
+    }
+  }
+
+  Future<void> bookMarkArticle(String userId, String articleId) async {
+    try {
+      await _repository.bookMarkArticle(userId, articleId);
+    } catch (e) {
+      emit(AwarenessState.error(e.toString()));
+    }
+  }
+
+  Future<void> getBookMarkedArticles(String userId) async {
+ /*    emit(const AwarenessState.loading());
+    try {
+      final articles = await _repository.getBookMarkedArticles(userId);
+      emit(AwarenessState.loaded(articles));
+    } catch (e) {
+      emit(AwarenessState.error(e.toString()));
+    } */
+  }
+
+  Future<void> searchArticles(String query) async {
+    emit(const AwarenessState.loading());
+    try {
+      final articles = await _repository.searchArticle(query);
+      emit(AwarenessState.loaded(articles));
+    } catch (e) {
+      emit(AwarenessState.error(e.toString()));
+    }
+  }
 /* 
   @override
   AwarenessState fromJson(Map<String, dynamic> json) =>

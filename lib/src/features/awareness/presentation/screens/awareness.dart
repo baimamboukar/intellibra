@@ -1,14 +1,13 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:easy_search_bar/easy_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
-import 'package:intellibra/src/app/assets.dart';
-import 'package:intellibra/src/configs/configs.dart';
 import 'package:intellibra/src/extensions/build_context.dart';
 import 'package:intellibra/src/extensions/num.dart';
 import 'package:intellibra/src/features/awareness/presentation/cubit/awareness_cubit.dart';
+import 'package:intellibra/src/features/awareness/presentation/widgets/article_card.dart';
 import 'package:intellibra/src/router/intellibra_router.gr.dart';
-import 'package:timeago/timeago.dart' as timeago;
 
 //TODO: #37 Implement Awareness feature
 @RoutePage()
@@ -25,6 +24,9 @@ class _AwarenessState extends State<Awareness> {
     context.read<AwarenessCubit>().getAllArticles(1);
     super.initState();
   }
+
+  final TextEditingController searchController = TextEditingController();
+  
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +53,12 @@ class _AwarenessState extends State<Awareness> {
                 await context.read<AwarenessCubit>().getAllArticles(1);
               },
               child: state.when(
+                noInternet: () => Center(
+                  child: Text(
+                    'No internet connection',
+                    style: context.bodyLg,
+                  ),
+                ),
                 initial: () => Center(
                   child: Text(
                     'articles not loaded, please refresh',
@@ -107,134 +115,15 @@ class _AwarenessState extends State<Awareness> {
           onPressed: () {},
           icon: const Icon(IconlyBroken.bookmark),
         ),
-        title: Text('Awareness', style: context.theme.textTheme.titleLarge),
+        /*  title: Text('Awareness', style: context.theme.textTheme.titleLarge),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(IconlyBroken.search),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class ArticleCard extends StatelessWidget {
-  const ArticleCard({
-    required this.id,
-    required this.title,
-    required this.createdAt,
-    required this.authorName,
-    this.description,
-    this.image,
-    super.key,
-  });
-  final String id;
-  final String title;
-  final String? description;
-  final DateTime createdAt;
-  final String? image;
-  final String authorName;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: description == null ? 167 : 232,
-      padding: const EdgeInsets.fromLTRB(16, 22, 16, 12),
-      decoration: BoxDecoration(
-        color: context.scheme.onPrimary,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    authorName,
-                    style: context.theme.textTheme.bodyMedium,
-                  ),
-                  4.vGap,
-                  SizedBox(
-                    width: 200,
-                    child: Text(
-                      title,
-                      style: context.theme.textTheme.headlineSmall!
-                          .copyWith(fontWeight: FontWeight.bold),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 3,
-                    ),
-                  ),
-                ],
-              ),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: image == null
-                    ? Image.asset(
-                        Assets.articlePlaceholder,
-                        height: 75,
-                        width: 75,
-                      )
-                    : Image.network(image!, height: 75, width: 75),
-              ),
-            ],
-          ),
-          4.vGap,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                timeago.format(
-                  createdAt,
-                ),
-                style: context.theme.textTheme.bodySmall!.copyWith(
-                  color: Palette.secondaryTextColor.withOpacity(0.5),
-                ),
-              ),
-              PopupMenuButton<String>(
-                onSelected: (value) {
-                  if (value == 'bookmark') {
-                    // Handle bookmark option
-                  } else if (value == 'like') {
-                    // Handle like option
-                  } else if (value == 'share') {
-                    // Handle share option
-                  }
-                },
-                itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-                  const PopupMenuItem<String>(
-                    value: 'bookmark',
-                    child: Text('Bookmark'),
-                  ),
-                  const PopupMenuItem<String>(
-                    value: 'like',
-                    child: Text('Like'),
-                  ),
-                  const PopupMenuItem<String>(
-                    value: 'share',
-                    child: Text('Share'),
-                  ),
-                ],
-                child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.more_horiz_outlined),
-                ),
-              ),
-            ],
-          ),
-          if (description != null) ...[
-            8.vGap,
-            Text(
-              description!,
-              style: context.theme.textTheme.bodyMedium,
-              overflow: TextOverflow.ellipsis,
-            ),
-          ],
-        ],
+        ], */
+        title: EasySearchBar(
+          title: Text('Awareness', style: context.theme.textTheme.titleLarge),
+          onSearch: (value) => setState(() => searchController.text = value),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
       ),
     );
   }

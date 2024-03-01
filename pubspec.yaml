@@ -42,6 +42,9 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   timeago: ^3.6.1
+  animated_search: ^0.0.5
+  easy_search_bar: ^2.5.0
+  toastification: ^1.2.1
 
 dev_dependencies:
   auto_route_generator: ^7.3.2

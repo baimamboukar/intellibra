@@ -50,5 +50,12 @@ class FirebaseService {
     return bookmarkList.doc(articleId).set({'articleId': articleId});
   }
 
+  Future<List<ArticleModel>> searchArticle(String query) {
+    return _articlesCollection
+        .where('title', isGreaterThanOrEqualTo: query)
+        .get()
+        .then((value) => value.docs.map(ArticleModel.fromFirestore).toList());
+  }
+
   // Other Firebase methods...
 }

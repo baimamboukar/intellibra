@@ -39,7 +39,7 @@ class ArticleModel with _$ArticleModel {
       id: doc.id,
       title: data['title'] as String,
       content: data['content'] as String,
-      imageUrl: data['imageUrl'] as String,
+      imageUrl: data['imageUrl'][0]['downloadURL'] as String,
       description: data['description'] as String,
       authorId: data['authorId'] as String?,
       authorName: data['authorName'] as String,

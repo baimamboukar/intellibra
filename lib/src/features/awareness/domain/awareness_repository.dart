@@ -61,6 +61,19 @@ class AwarenessRepository {
       throw Exception('No internet connection');
     }
   }
+
+  Future<List<ArticleModel>> searchArticle(String query) async {
+    // Check internet connectivity
+    final isConnected = await checkInternetConnectivity();
+
+    if (isConnected) {
+      return _firebaseService.searchArticle(query);
+    } else {
+      // Handle offline storage with Hive or other local storage method
+      // return _hiveService.searchArticleLocally(query);
+      throw Exception('No internet connection');
+    }
+  }
 }
 
 Future<bool> checkInternetConnectivity() {

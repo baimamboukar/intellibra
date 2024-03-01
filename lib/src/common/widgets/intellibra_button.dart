@@ -13,6 +13,7 @@ class IntellibraButton extends StatelessWidget {
     super.key,
     this.width = .9,
     this.icon,
+    this.boxShadow,
   });
   final IconData? icon;
   final String text;
@@ -20,6 +21,7 @@ class IntellibraButton extends StatelessWidget {
   final Color color;
   final double width;
   final double? buttonRadius;
+  final List<BoxShadow>? boxShadow;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +32,7 @@ class IntellibraButton extends StatelessWidget {
         height: Constants.buttonHeight,
         decoration: BoxDecoration(
           color: color,
+          boxShadow: boxShadow,
           borderRadius:
               BorderRadius.circular(buttonRadius ?? Constants.borderRadius),
         ),
