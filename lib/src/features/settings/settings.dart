@@ -24,7 +24,7 @@ class Settings extends StatelessWidget {
             34.vGap,
             const Center(
               child: CircleAvatar(
-                backgroundImage: AssetImage(Assets.assetsIconsWoman),
+                backgroundImage: AssetImage(Assets.assetsIconsUser),
                 radius: 50,
               ),
             ),
@@ -32,11 +32,12 @@ class Settings extends StatelessWidget {
             ProfileCard(
               children: [
                 Text(
-                  'Baima Boukara',
-                  style: context.theme.textTheme.titleLarge,
+                  'Anzia Juvis',
+                  style: context.theme.textTheme.titleLarge!
+                      .copyWith(fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  'baima@gmail.com',
+                  'anzia.juvis@intellibra.io',
                   style: context.theme.textTheme.bodyLarge,
                 ),
                 14.vGap,
@@ -62,12 +63,12 @@ class Settings extends StatelessWidget {
                 ),
               ],
             ),
-            24.vGap,
+            14.vGap,
             ProfileCard(
               children: [
                 Text(
                   'Intellibra Member Since',
-                  style: context.theme.textTheme.titleLarge,
+                  style: context.theme.textTheme.titleSmall,
                 ),
                 Text(
                   'Feb 21, 2024',
@@ -77,12 +78,9 @@ class Settings extends StatelessWidget {
             ),
             ProfileCard(
               children: [
-                const Text(
+                Text(
                   'Intellibra Settings',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: context.theme.textTheme.titleSmall,
                 ),
                 4.vGap,
                 ActionLabelWithDivider(

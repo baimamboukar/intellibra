@@ -10,8 +10,8 @@ class IntellibraTheme {
 
 ThemeData _getTheme(Brightness brightness) => ThemeData(
       useMaterial3: true,
-      // brightness: brightness,
-      fontFamily: 'Agrandir',
+      brightness: brightness,
+      fontFamily: 'Gilroy',
       colorScheme: SeedColorScheme.fromSeeds(
         brightness: brightness,
         primary: const Color(0xFFDA015F),
@@ -19,7 +19,10 @@ ThemeData _getTheme(Brightness brightness) => ThemeData(
         
         secondary: const Color(0xFF1B2121),
         tertiary: const Color(0xFFEEFCE3),
-        background: const Color(0xFFF6F6F6),
+        background: const Color(0xFFEBEBEB),
+        // secondaryKey: const Color(0xFFA1E4F3),
+        // tertiaryKey: const Color(0xFF303030),
+        // background: const Color(0xFFE7E6DF),
         tones: FlexTones.vivid(brightness),
       ),
     );
