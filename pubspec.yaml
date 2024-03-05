@@ -45,6 +45,15 @@ dependencies:
   swipe_refresh: ^1.0.2
   syncfusion_flutter_gauges: ^24.2.7
   url_launcher: ^6.1.10
+  json_annotation: ^4.8.1
+  freezed_annotation: ^2.4.1
+  internet_connection_checker_plus: ^2.2.0
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0 
+  timeago: ^3.6.1
+  animated_search: ^0.0.5
+  easy_search_bar: ^2.5.0
+  toastification: ^1.2.1
   #flutter_gen: ^5.4.0
 
 dev_dependencies:
@@ -55,6 +64,8 @@ dev_dependencies:
   #flutter_gen_runner: ^5.4.0
   flutter_test:
     sdk: flutter
+  freezed: ^2.4.7
+  json_serializable: ^6.7.1
   mocktail: ^1.0.3
   very_good_analysis: ^5.0.0+1
 
@@ -65,6 +76,7 @@ flutter:
     - assets/
     - assets/icons/
     - assets/fonts/
+    - assets/images/
   fonts:
     - family: Baguede
       fonts:

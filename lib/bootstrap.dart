@@ -40,7 +40,6 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
             ? HydratedStorage.webStorageDirectory
             : await getTemporaryDirectory(),
       );
-
       await Firebase.initializeApp(
         options: DefaultFirebaseOptions.currentPlatform,
       );
