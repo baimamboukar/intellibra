@@ -54,6 +54,7 @@ dependencies:
   animated_search: ^0.0.5
   easy_search_bar: ^2.5.0
   toastification: ^1.2.1
+  http: ^1.2.0
   #flutter_gen: ^5.4.0
 
 dev_dependencies:

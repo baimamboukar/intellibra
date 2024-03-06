@@ -28,38 +28,40 @@ class _HomeState extends State<Home> {
             routes.IntelliRecords(),
             routes.Settings(),
           ],
-          appBarBuilder:!kIsWeb ?null: (context, router) {
-            
-            return TabBar(
-              indicatorColor: context.scheme.primary.withOpacity(.25),
-              //  backgroundColor: context.scheme.primary,
-              tabs: const [
-                Tab(
-                  icon: Icon(IconlyBroken.heart),
-                  text: 'Self-Check',
-                ),
-                Tab(
-                  icon: Icon(IconlyBroken.shield_done),
-                  text: 'Awareness',
-                ),
-                Tab(
-                  icon: Icon(IconlyBroken.folder),
-                  text: 'Records',
-                ),
-                Tab(
-                  icon: Icon(IconlyBroken.user_2),
-                  text: 'Profile',
-                ),
-              ],
-             // sel: router.activeIndex,
-              onTap: (index) => router.setActiveIndex(index),
-            );
-          
-          },
+          appBarBuilder: !kIsWeb
+              ? null
+              : (context, router) {
+                  return TabBar(
+                    indicatorColor: context.scheme.primary.withOpacity(.25),
+                    //  backgroundColor: context.scheme.primary,
+                    tabs: const [
+                      Tab(
+                        icon: Icon(IconlyBroken.heart),
+                        text: 'Self-Check',
+                      ),
+                      Tab(
+                        icon: Icon(IconlyBroken.shield_done),
+                        text: 'Awareness',
+                      ),
+                      Tab(
+                        icon: Icon(IconlyBroken.folder),
+                        text: 'Records',
+                      ),
+                      Tab(
+                        icon: Icon(IconlyBroken.user_2),
+                        text: 'Profile',
+                      ),
+                    ],
+                    // sel: router.activeIndex,
+                    onTap: (index) => router.setActiveIndex(index),
+                  );
+                },
           floatingActionButtonBuilder: (context, router) {
             if (router.activeIndex == 0) {
               return FloatingActionButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.router.push(const routes.ChatRoute());
+                },
                 child: const HeroIcon(HeroIcons.sparkles),
               );
             }
@@ -69,34 +71,35 @@ class _HomeState extends State<Home> {
             scale: animation,
             child: child,
           ),
-          
-          
-          bottomNavigationBuilder:kIsWeb ? null: (context, router) {
-            return NavigationBar(
-              indicatorColor: context.scheme.primary.withOpacity(.25),
-              //  backgroundColor: context.scheme.primary,
-              destinations: const [
-                NavigationDestination(
-                  icon: Icon(IconlyBroken.heart),
-                  label: 'Self-Check',
-                ),
-                NavigationDestination(
-                  icon: Icon(IconlyBroken.shield_done),
-                  label: 'Awareness',
-                ),
-                NavigationDestination(
-                  icon: Icon(IconlyBroken.folder),
-                  label: 'Records',
-                ),
-                NavigationDestination(
-                  icon: Icon(IconlyBroken.user_2),
-                  label: 'Profile',
-                ),
-              ],
-              selectedIndex: router.activeIndex,
-              onDestinationSelected: (index) => router.setActiveIndex(index),
-            );
-          },
+          bottomNavigationBuilder: kIsWeb
+              ? null
+              : (context, router) {
+                  return NavigationBar(
+                    indicatorColor: context.scheme.primary.withOpacity(.25),
+                    //  backgroundColor: context.scheme.primary,
+                    destinations: const [
+                      NavigationDestination(
+                        icon: Icon(IconlyBroken.heart),
+                        label: 'Self-Check',
+                      ),
+                      NavigationDestination(
+                        icon: Icon(IconlyBroken.shield_done),
+                        label: 'Awareness',
+                      ),
+                      NavigationDestination(
+                        icon: Icon(IconlyBroken.folder),
+                        label: 'Records',
+                      ),
+                      NavigationDestination(
+                        icon: Icon(IconlyBroken.user_2),
+                        label: 'Profile',
+                      ),
+                    ],
+                    selectedIndex: router.activeIndex,
+                    onDestinationSelected: (index) =>
+                        router.setActiveIndex(index),
+                  );
+                },
         ),
       ),
     );
