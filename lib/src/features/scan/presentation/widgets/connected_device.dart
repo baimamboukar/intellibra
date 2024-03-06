@@ -12,7 +12,7 @@ class ConnectedDevice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: context.width * 0.3,
+      width: context.width * 0.2,
       height: 180,
       decoration: BoxDecoration(
         color: context.scheme.primary,
@@ -46,10 +46,11 @@ class ConnectedDevice extends StatelessWidget {
                 shadowWidth: context.width * 0.35,
                 shadowColor: context.scheme.primary.withOpacity(0.9),
                 child: Image.asset(
+                  height: context.height * .2,
                   Assets.assetsIconsIntellibra,
                 ),
               ),
-              8.vGap,
+              4.vGap,
               Text(
                 'CE12XFMZ',
                 style: context.bodyMd.copyWith(

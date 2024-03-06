@@ -9,6 +9,7 @@ import 'package:intellibra/src/common/common.dart';
 import 'package:intellibra/src/extensions/build_context.dart';
 import 'package:intellibra/src/extensions/num.dart';
 import 'package:intellibra/src/extensions/widgetx.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class DeviceSwitch extends StatelessWidget {
   const DeviceSwitch({super.key});
@@ -49,7 +50,9 @@ class DeviceSwitch extends StatelessWidget {
         child: Row(
           children: [
             const Text('Connect'),
-            const Spacer(),
+           if(!kIsWeb)  const Spacer()
+           else 16.hGap
+           ,
             HeroIcon(
               HeroIcons.chevronRight,
               size: 14,

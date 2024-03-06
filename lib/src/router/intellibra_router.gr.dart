@@ -9,7 +9,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i15;
-import 'package:flutter/material.dart' as _i17;
+import 'package:flutter/cupertino.dart' as _i17;
 import 'package:intellibra/src/features/auth/presentation/signup/screens/signup.dart'
     as _i8;
 import 'package:intellibra/src/features/awareness/domain/awareness_model.dart'

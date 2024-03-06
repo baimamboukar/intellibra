@@ -3,6 +3,7 @@ import 'package:easy_search_bar/easy_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
+import 'package:intellibra/src/common/common.dart';
 import 'package:intellibra/src/extensions/build_context.dart';
 import 'package:intellibra/src/extensions/num.dart';
 import 'package:intellibra/src/features/awareness/presentation/cubit/awareness_cubit.dart';
@@ -26,7 +27,6 @@ class _AwarenessState extends State<Awareness> {
   }
 
   final TextEditingController searchController = TextEditingController();
-  
 
   @override
   Widget build(BuildContext context) {
@@ -69,9 +69,21 @@ class _AwarenessState extends State<Awareness> {
                     const Center(child: CircularProgressIndicator.adaptive()),
                 loaded: (articles) => articles.isEmpty
                     ? Center(
-                        child: Text(
-                          'No article Yet',
-                          style: context.bodyLg,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'No article Yet',
+                              style: context.bodyLg,
+                            ),
+                            16.vGap,
+                            IntellibraButtonSmall(
+                              text: 'reload',
+                              action: () => context
+                                  .read<AwarenessCubit>()
+                                  .getAllArticles(1),
+                            ),
+                          ],
                         ),
                       )
                     : Padding(

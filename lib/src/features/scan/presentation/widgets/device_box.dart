@@ -6,6 +6,7 @@ import 'package:intellibra/src/extensions/widgetx.dart';
 import 'package:intellibra/src/features/scan/presentation/widgets/connected_device.dart';
 import 'package:intellibra/src/features/scan/presentation/widgets/device_state.dart';
 import 'package:intellibra/src/features/scan/presentation/widgets/device_switch.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class DeviceBox extends StatelessWidget {
   const DeviceBox({
@@ -27,7 +28,7 @@ class DeviceBox extends StatelessWidget {
               children: [
                 const DeviceStateSection(),
                 14.vGap,
-                const Spacer(),
+                 const Spacer(),
                 const DeviceSwitch(),
 
                 // const BottomAction(),
