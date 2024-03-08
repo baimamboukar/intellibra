@@ -28,7 +28,7 @@ class _HomeState extends State<Home> {
             routes.IntelliRecords(),
             routes.Settings(),
           ],
-          appBarBuilder: !kIsWeb
+          appBarBuilder: !kIsWeb || context.mediaQuery.size.width < 600
               ? null
               : (context, router) {
                   return TabBar(
@@ -71,7 +71,7 @@ class _HomeState extends State<Home> {
             scale: animation,
             child: child,
           ),
-          bottomNavigationBuilder: kIsWeb
+          bottomNavigationBuilder: kIsWeb && context.mediaQuery.size.width > 600
               ? null
               : (context, router) {
                   return NavigationBar(

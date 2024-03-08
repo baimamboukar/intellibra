@@ -8,7 +8,9 @@ import 'package:intellibra/src/extensions/build_context.dart';
 import 'package:intellibra/src/extensions/num.dart';
 import 'package:intellibra/src/features/awareness/presentation/cubit/awareness_cubit.dart';
 import 'package:intellibra/src/features/awareness/presentation/widgets/article_card.dart';
+import 'package:intellibra/src/features/awareness/presentation/widgets/articles_mobile_view.dart';
 import 'package:intellibra/src/router/intellibra_router.gr.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 //TODO: #37 Implement Awareness feature
 @RoutePage()
@@ -88,28 +90,37 @@ class _AwarenessState extends State<Awareness> {
                       )
                     : Padding(
                         padding: const EdgeInsets.all(16),
-                        child: ListView.separated(
-                          physics: const BouncingScrollPhysics(),
-                          itemBuilder: (context, i) {
-                            final article = articles[i];
-                            return GestureDetector(
-                              onTap: () {
-                                AutoRouter.of(context)
-                                    .push(ArticleRoute(article: article));
-                              },
-                              child: ArticleCard(
-                                id: article.id,
-                                title: article.title,
-                                createdAt: article.createdAt,
-                                description: article.description,
-                                authorName: article.authorName,
-                                image: article.imageUrl,
+                        child: kIsWeb && context.mediaQuery.size.width >= 600
+                            ? GridView.count(
+                                crossAxisCount:
+                                    context.mediaQuery.size.width >= 1050
+                                        ? 3
+                                        : 2,
+                                crossAxisSpacing: 16,
+                                mainAxisSpacing: 16,
+                                        
+                                children: [
+                                  for (final article in articles)
+                                    GestureDetector(
+                                      onTap: () {
+                                        AutoRouter.of(context).push(
+                                          ArticleRoute(article: article),
+                                        );
+                                      },
+                                      child: ArticleCard(
+                                        id: article.id,
+                                        title: article.title,
+                                        createdAt: article.createdAt,
+                                        description: article.description,
+                                        authorName: article.authorName,
+                                        image: article.imageUrl,
+                                      ),
+                                    ),
+                                ],
+                              )
+                            : ArticlesMobileView(
+                                articles: articles,
                               ),
-                            );
-                          },
-                          separatorBuilder: (context, i) => 32.vGap,
-                          itemCount: articles.length,
-                        ),
                       ),
                 error: (message) => Text(
                   message,
