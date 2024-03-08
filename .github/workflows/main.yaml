@@ -41,7 +41,7 @@ jobs:
           channel: "stable"
       - run: flutter pub get
       # use this if you need generate build_runner related files
-      - run: dart run build_runner build --delete-conflicting-outputs
+    #  - run: dart run build_runner build --delete-conflicting-outputs
       - run: flutter build web --source-maps --web-renderer=html
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
