@@ -1,10 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:intellibra/src/extensions/build_context.dart';
 import 'package:intellibra/src/extensions/num.dart';
 
-import '../../../../app/assets.dart';
-import '../../../../configs/configs.dart';
+import 'package:intellibra/src/app/assets.dart';
+import 'package:intellibra/src/configs/configs.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class ArticleCard extends StatelessWidget {
@@ -26,6 +25,7 @@ class ArticleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isMobile = context.mediaQuery.size.width < 600;
     return Container(
       height: description == null ? 167 : 232,
       padding: const EdgeInsets.fromLTRB(16, 22, 16, 12),
@@ -48,7 +48,11 @@ class ArticleCard extends StatelessWidget {
                   ),
                   4.vGap,
                   SizedBox(
-                    width: MediaQuery.of(context).size.width >= 700 ? 500: 200,
+                    width: isMobile
+                        ? context.mediaQuery.size.width * 0.6
+                        : context.mediaQuery.size.width >= 960
+                            ? context.mediaQuery.size.width * 0.27
+                            : context.mediaQuery.size.width * 0.38,
                     child: Hero(
                       tag: title,
                       child: Text(
@@ -62,33 +66,34 @@ class ArticleCard extends StatelessWidget {
                   ),
                 ],
               ),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: image == null
-                    ? Container(
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(Assets.articlePlaceholder),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        height: 75,
-                        width: 75,
-                      )
-                    : Hero(
-                        tag: image!,
-                        child: Container(
-                          decoration:  BoxDecoration(
+              if (isMobile)
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: image == null
+                      ? Container(
+                          decoration: const BoxDecoration(
                             image: DecorationImage(
-                              image: NetworkImage(image!),
+                              image: AssetImage(Assets.articlePlaceholder),
                               fit: BoxFit.cover,
                             ),
                           ),
                           height: 75,
                           width: 75,
+                        )
+                      : Hero(
+                          tag: image!,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: NetworkImage(image!),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            height: 75,
+                            width: 75,
+                          ),
                         ),
-                      ),
-              ),
+                ),
             ],
           ),
           4.vGap,
@@ -140,6 +145,26 @@ class ArticleCard extends StatelessWidget {
               description!,
               style: context.theme.textTheme.bodyMedium,
               overflow: TextOverflow.ellipsis,
+            ),
+          ],
+          if (!isMobile) ...[
+            8.vGap,
+            Expanded(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Hero(
+                  tag: image!,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage(image!),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    // height: context.mediaQuery.size.width >= 960 ? 160: context.mediaQuery.size.width >= 600 ? 210: 135,
+                  ),
+                ),
+              ),
             ),
           ],
         ],

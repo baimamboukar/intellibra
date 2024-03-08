@@ -47,7 +47,10 @@ class IntellibraRouter extends $IntellibraRouter {
           path: '/article',
         ), 
         
-        
+        AutoRoute(
+          page: ChatRoute.page,
+          path: '/chat',
+        ), 
 
         AutoRoute(
           page: Home.page,

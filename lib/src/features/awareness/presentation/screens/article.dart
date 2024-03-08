@@ -24,6 +24,7 @@ class ArticlePage extends StatelessWidget {
   final ArticleModel article;
   @override
   Widget build(BuildContext context) {
+    final isLargeScreen = context.mediaQuery.size.width > 760;
     return Scaffold(
       extendBodyBehindAppBar: true,
       body: SizedBox(
@@ -61,8 +62,23 @@ class ArticlePage extends StatelessWidget {
                   ),
                   8.vGap,
                   SingleChildScrollView(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: Container(
+                      width: context.mediaQuery.size.width * .8,
+                      decoration: BoxDecoration(
+                        color: context.scheme.onPrimary,
+                        borderRadius: BorderRadius.circular(16),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.1),
+                            spreadRadius: 1,
+                            blurRadius: 5,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: isLargeScreen ? 64 : 8,
+                          vertical: isLargeScreen ? 16 : 8),
                       child: Text(
                         article.content,
                         style: context.theme.textTheme.titleMedium!

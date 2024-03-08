@@ -6,6 +6,7 @@ import 'package:intellibra/src/extensions/widgetx.dart';
 import 'package:intellibra/src/features/scan/presentation/widgets/scan_gauge.dart';
 import 'package:intellibra/src/features/scan/presentation/widgets/scan_stats.dart';
 import 'package:intellibra/src/features/scan/presentation/widgets/welcome_tile.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class RecentChekups extends StatelessWidget {
   const RecentChekups({
@@ -22,10 +23,10 @@ class RecentChekups extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const Row(
+           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ScanStats(),
-              Spacer(),
               ScanGauge(),
             ],
           ).hPaddingx(8),
@@ -33,6 +34,7 @@ class RecentChekups extends StatelessWidget {
           //   thickness: .5,
           // ),
           Text(
+            overflow: TextOverflow.ellipsis,
             'You can share your recent checkups with our medical experts',
             style: context.bodyLg.copyWith(
               fontSize: 14,
