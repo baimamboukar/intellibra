@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intellibra/src/extensions/build_context.dart';
 import 'package:intellibra/src/extensions/num.dart';
 import 'package:intellibra/src/extensions/widgetx.dart';
+import 'package:intellibra/src/features/scan/presentation/cubit/scan_cubit.dart';
 import 'package:intellibra/src/features/scan/presentation/widgets/device_box.dart';
 import 'package:intellibra/src/features/scan/presentation/widgets/recent_checkups.dart';
 import 'package:intellibra/src/features/scan/presentation/widgets/welcome_tile.dart';
@@ -20,15 +22,15 @@ class SelfCheck extends StatelessWidget {
         child: Column(
           children: [
             24.vGap,
-
+      
             const WelcomeTile(),
-
+      
             24.vGap,
             //const DeviceSwitch(),
             //24.vGap,
             // const ScanHistory(),
             14.vGap,
-
+      
             if (kIsWeb && context.width > 800)
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -39,7 +41,6 @@ class SelfCheck extends StatelessWidget {
                   ),
                   28.hGap,
                   SizedBox(
-                    
                     width: context.width * .5,
                     child: const RecentChekups()),
                 ],

@@ -20,7 +20,7 @@ void main() {
           BlocProvider.value(
             value: ThemeCubit(),
           ),
-          BlocProvider.value(value: ScanCubit()),
+          BlocProvider.value(value: ScanCubit()..checkBlueState()),
           BlocProvider(
             create: (context) => AwarenessCubit(
               context.read<AwarenessRepository>(),

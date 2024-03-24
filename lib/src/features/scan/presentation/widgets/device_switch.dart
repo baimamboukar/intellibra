@@ -2,6 +2,7 @@ import 'package:action_slider/action_slider.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:bottom_sheet/bottom_sheet.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:glass_kit/glass_kit.dart';
 import 'package:heroicons/heroicons.dart';
 import 'package:intellibra/src/app/assets.dart';
@@ -10,6 +11,7 @@ import 'package:intellibra/src/extensions/build_context.dart';
 import 'package:intellibra/src/extensions/num.dart';
 import 'package:intellibra/src/extensions/widgetx.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:intellibra/src/features/scan/presentation/cubit/scan_cubit.dart';
 
 class DeviceSwitch extends StatelessWidget {
   const DeviceSwitch({super.key});
@@ -50,9 +52,7 @@ class DeviceSwitch extends StatelessWidget {
         child: Row(
           children: [
             const Text('Connect'),
-           if(!kIsWeb)  const Spacer()
-           else 16.hGap
-           ,
+            if (!kIsWeb) const Spacer() else 16.hGap,
             HeroIcon(
               HeroIcons.chevronRight,
               size: 14,
@@ -73,6 +73,7 @@ class DeviceSwitch extends StatelessWidget {
       ),
       action: (controller) async {
         controller.loading();
+        BlocProvider.of<ScanCubit>(context).scanDevices();
         await Future<void>.delayed(const Duration(seconds: 1));
         if (context.mounted) {
           await showFlexibleBottomSheet<void>(

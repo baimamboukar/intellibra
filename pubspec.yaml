@@ -21,7 +21,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.2
-  flutter_blue_plus: ^1.10.9
+  flutter_blue_plus: ^1.31.16
   flutter_gemini: ^2.0.3
   flutter_heatmap_calendar: ^1.0.5
   flutter_hicons: ^0.1.0
@@ -55,6 +55,7 @@ dependencies:
   easy_search_bar: ^2.5.0
   toastification: ^1.2.1
   http: ^1.2.0
+  onboarding: ^4.0.2
   #flutter_gen: ^5.4.0
 
 dev_dependencies:
