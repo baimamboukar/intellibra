@@ -55,6 +55,7 @@ dependencies:
   easy_search_bar: ^2.5.0
   toastification: ^1.2.1
   http: ^1.2.0
+  onboarding: ^4.0.2
   #flutter_gen: ^5.4.0
 
 dev_dependencies:

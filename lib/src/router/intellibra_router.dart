@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:intellibra/src/router/first_run_guard.dart';
 import 'package:intellibra/src/router/intellibra_router.gr.dart';
 
 @AutoRouterConfig(
@@ -9,8 +10,8 @@ class IntellibraRouter extends $IntellibraRouter {
   List<AutoRoute> get routes => <AutoRoute>[
         AutoRoute(
           page: Welcome.page,
-          initial: true,
           path: '/welcome',
+          //  guards: [NotFirstRunGuard()],
         ),
         AutoRoute(
           page: CreateAccount.page,
@@ -24,7 +25,7 @@ class IntellibraRouter extends $IntellibraRouter {
           page: ChooseTheme.page,
           path: '/choose-theme',
         ),
-      // AutoRoute(page: Article.page, path: '/article/:id'),
+        // AutoRoute(page: Article.page, path: '/article/:id'),
         AutoRoute(
           page: AccountSettings.page,
           path: '/account-settings',
@@ -40,21 +41,23 @@ class IntellibraRouter extends $IntellibraRouter {
         AutoRoute(
           page: EditProfile.page,
           path: '/billing-settings',
-        ), 
-        
+        ),
+
         AutoRoute(
           page: ArticleRoute.page,
           path: '/article',
-        ), 
-        
+        ),
+
         AutoRoute(
           page: ChatRoute.page,
           path: '/chat',
-        ), 
+        ),
 
         AutoRoute(
           page: Home.page,
-          path: '/home',
+          path: '/',
+          initial: true,
+          guards: [FirstRunGuard()],
           children: [
             AutoRoute(
               page: SelfCheck.page,

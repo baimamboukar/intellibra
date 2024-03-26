@@ -76,7 +76,7 @@ abstract class $IntellibraRouter extends _i16.RootStackRouter {
     ChatRoute.name: (routeData) {
       return _i16.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i6.ChatPage(),
+        child: const _i6.ChatPage(),
       );
     },
     ChooseLanguage.name: (routeData) {
