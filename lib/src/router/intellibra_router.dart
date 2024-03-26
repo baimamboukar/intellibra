@@ -11,7 +11,7 @@ class IntellibraRouter extends $IntellibraRouter {
         AutoRoute(
           page: Welcome.page,
           path: '/welcome',
-          //  guards: [NotFirstRunGuard()],
+            guards: [NotFirstRunGuard()],
         ),
         AutoRoute(
           page: CreateAccount.page,
