@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:intellibra/src/configs/palette.dart';
 import 'package:http/http.dart' as http;
 
+@RoutePage()
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
   static const routeName = '/chat';

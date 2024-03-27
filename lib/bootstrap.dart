@@ -4,6 +4,8 @@ import 'dart:developer';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:intellibra/firebase_options.dart';
 import 'package:intellibra/src/features/scan/data/bluetooth_scan_service.dart';
@@ -43,6 +45,9 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
       await Firebase.initializeApp(
         options: DefaultFirebaseOptions.currentPlatform,
       );
+      await Hive.initFlutter();
+
+      await Hive.openBox<dynamic>('settings');
       runApp(await builder());
     },
     (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),

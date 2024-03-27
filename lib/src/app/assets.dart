@@ -80,5 +80,12 @@ class Assets {
 
   static const String articlePlaceholder = 'images/article_placeholder.png';
   static const String articleNoBgPlaceholder = 'images/article_nobg_placeholder.png';
+  static const String notFound = 'images/404.png';
+  static const String waiting = 'images/waiting.png';
+  static const String chart = 'images/chart.png';
+  static const String cancer = 'images/cancer.png';
+  static const String welcome = 'images/welcome.png';
+  static const String reading = 'images/reading.png';
+
   
 }
