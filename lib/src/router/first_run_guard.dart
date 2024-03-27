@@ -8,7 +8,7 @@ class FirstRunGuard extends AutoRouteGuard {
   void onNavigation(NavigationResolver resolver, StackRouter router) {
       final isFirstRun =
           Hive.box('settings').get('isFirstRun', defaultValue: true) as bool;
-      if (isFirstRun && !kIsWeb) {
+      if (isFirstRun ) {
         Hive.box('settings').put('isFirstRun', false);
         router.push(const Welcome());
       } else {
@@ -23,7 +23,7 @@ class NotFirstRunGuard extends AutoRouteGuard {
   void onNavigation(NavigationResolver resolver, StackRouter router) {
     final isFirstRun =
         Hive.box('settings').get('isFirstRun', defaultValue: true) as bool;
-    if (!isFirstRun || kIsWeb) {
+    if (!isFirstRun ) {
       router.pushNamed('/');
     } else {
       resolver.next();

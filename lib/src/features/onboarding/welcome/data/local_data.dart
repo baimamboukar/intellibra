@@ -1,34 +1,36 @@
 import 'package:intellibra/src/app/assets.dart';
-import 'package:intellibra/src/features/onboarding/welcome/data/onboarding_model.dart';
+import 'package:introduction_screen/introduction_screen.dart';
+import 'package:flutter/material.dart';
 
-List<OnboardingModel> onboardingData = [
-  OnboardingModel(
+
+List<PageViewModel> onboardingData = [
+  PageViewModel(
     title: 'Welcome to intellibra',
-    description: 'the only breast cancer app you will ever need',
-    image: Assets.welcome,
+    body: 'the only breast cancer app you will ever need',
+    image: Image.asset(Assets.welcome),
   ),
-  OnboardingModel(
+  PageViewModel(
     title: 'Self-Scan Functionality',
-    description:
+    body:
         'Get started with IntelliBra by connecting for regular self-scans, aiding early detection with advanced analysis.',
-    image: Assets.cancer,
+    image: Image.asset(Assets.cancer),
   ),
-  OnboardingModel(
+  PageViewModel(
     title: 'Awareness Section',
-    description:
+    body:
         'Stay informed on breast cancer with helpful resources and survivor stories, empowering proactive health habits',
-    image: Assets.reading,
+    image: Image.asset(Assets.reading),
   ),
-  OnboardingModel(
+  PageViewModel(
     title: 'Records Management',
-    description:
+    body:
         'Track your screening history and results for informed decision-making and proactive health management.',
-    image: Assets.chart,
+    image: Image.asset(Assets.chart),
   ),
-  OnboardingModel(
+  PageViewModel(
     title: 'Profile Section',
-    description:
+    body:
         'Personalize your IntelliBra experience, updating settings to tailor the app to your needs and preferences.',
-    image: Assets.waiting,
+    image: Image.asset(Assets.waiting),
   ),
 ];
